@@ -1,0 +1,87 @@
+<my-component my-property='{{aa}}' />
+<view class="line" style='margin-top:{{high}}rpx'></view>
+<view class="performance"  >
+   <view class="top"  >
+        <view class="top-blue">
+           <view>
+              <view>{{headLsit[3].AllMoney}}</view>
+              <view>总金额</view>
+           </view>
+           <view>
+              <view>{{headLsit[3].AllNum}}</view>
+              <view>总节数</view>
+           </view>
+        </view>
+        <view class="top-num">
+            <view>
+              <view>{{headLsit[0].AllMoney}}</view>
+              <view>POS成单</view>
+              <view>{{headLsit[0].AllNum}}单</view>
+           </view>
+             <view>
+              <view>{{headLsit[1].AllMoney}}</view>
+              <view>新会员买课</view>
+
+              <view>{{headLsit[1].AllNum}}节</view>
+
+           </view>
+            <view>
+              <view>{{headLsit[2].AllMoney}}</view>
+              <view>老会员续课</view>
+              <view>{{headLsit[2].AllNum}}节</view>
+
+           </view>
+           
+        
+        </view>
+   
+   </view>
+<!-- picker -->
+  <view class="main-1">  
+      <picker mode="date" value="{{startTime}}"  end="{{endTime}}" bindchange="bindDateChange" >  
+        <view class="picker" >  
+          {{startTime}}  
+          <image src="/icon/arrow.png"></image>
+        </view>  
+      </picker>  
+      <view class="kong"></view>
+      <picker mode="date" value="{{endTime}}" start="{{startTime}}" end=" {{distime}}  " bindchange="bindDateChange2">  
+        <view class="picker">  
+          {{endTime}}  
+           <image src="/icon/arrow.png"></image>
+        </view>  
+      </picker>        
+    </view>  
+  <view class="info" >
+      
+    <view class="search">
+     <image src="/icon/search.png" class="sousuo"></image>
+     <input type="text" placeholder="请输入会员姓名、手机号" bindinput="watchPassWord"  value='{{inputValue}}'></input>
+      <!-- <view  class="clear" bindtap="clearValue" hidden="{{clear !==0}}"> -->
+      <view  class="clear" bindtap="clearValue" wx:if="{{clear ==0}}">
+
+          <image src="/icon/clear.png" class="imageClear"></image>
+      </view>
+    </view>
+    <view class="info-con">
+       <block wx:for="{{listinfo}}">
+              <view class="info-flex">
+                  <image wx:if="{{item.UI_Face}}" src="{{item.UI_Face}}"  mode="aspectFill" class="head-img"></image>
+        <view  wx:else class="notimage">{{item.firstname}}</view>
+
+                 <view class="user">
+                    <view class="user-info"><text>{{item.UI_Name}} </text></view>
+                     <view>{{item.CreateDate}}</view>
+                 </view>
+                 <view class="pay">
+                    <view>{{item.CO_Num}}节/{{item.Money}}元</view>
+                     <view><text>{{item.CP_Name}}</text></view>
+                 </view>
+              </view>
+        </block>
+          <view wx:if="{{botEnd}}" class="botEnd">抱歉，没有更多会员了!</view>
+         <view class="Nofind" wx:if="{{nofind}}">没有找到联系人</view>
+    </view>
+  </view>
+   <image src="../../icon/tops.png" class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+</view>

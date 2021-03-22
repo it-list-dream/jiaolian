@@ -1,0 +1,31 @@
+<my-component my-property='{{aa}}' />
+
+
+
+<view class="setting" style="margin-top:{{high2}}rpx">
+  <ul class="myinfo">
+    <li>
+      <text>头像</text>
+      <open-data type="userAvatarUrl" class="myimg1"></open-data>
+    </li>
+    <li>
+      <text>姓名</text>
+     <text>{{meminfo.AI_Name}}</text>
+    </li>
+    <li>
+      <text>性别</text>
+      <text>{{meminfo.AI_Sex}}</text>
+    </li>
+
+    <li>
+      <text>手机号</text>
+      <text>{{meminfo.AI_Tel}}</text>
+    </li>
+  </ul>
+  <view class="changepwd" bindtap="tochangepwd">
+    <text>修改密码</text>
+    <image src="/icon/right_arrow.png"></image>
+
+  </view>
+  <view class="logout" bindtap="cancelled">注销</view>
+</view>

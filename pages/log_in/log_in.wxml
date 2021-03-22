@@ -1,0 +1,49 @@
+<my-component my-property='{{aa}}' />
+<view class='all' style='margin-top:{{high}}rpx'>
+  <view class='tex'>
+    <view>你好,</view>
+    <view>欢迎来到Ruyu</view>
+  </view>
+  <view class='inp'>
+    <view class='left'>
+      <input type='text' placeholder='前缀' placeholder-class='pcl' class='inputone' bindinput='getprifidx'></input>
+      <image src='/icon/down_arrow-m.png'></image>
+    </view>
+    <input type='text' placeholder='请输入手机号/账号' value='{{Del}}' bindinput="getPhone" placeholder-class='plstyle' class="phoneinput"></input>
+    <image src='/icon/shanchu.png' class='del' bindtap='del'></image>
+  </view>
+  <view class='kong'></view>
+  <view class='inp'>
+    <image src='/icon/verify.png' class='mima'></image>
+    <input password="{{show}}" value='{{password}}' bindinput='getPassWord' placeholder-class='plstyle' placeholder='请输入密码' class="pwdinput"></input>
+    <view class="showView" bindtap='showPassword'>
+      <image class='showImg' src="{{isShow ? '/icon/bukejian.png' : '/icon/kejian.png'}}"></image>
+    </view>
+  </view>
+  <view class='kong'></view>
+
+  <view class='con'>
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 登录 </button>
+
+  </view>
+  <view class='bot'>
+    <view bindtap="logDisabled" class="logDisabled">
+      <image src=" {{logDisabled?'/icon/agreeicon.png':'/icon/agreekong.png'}}  "></image>
+    </view>
+    <text>登录代表您已经同意</text>
+    <navigator url="/pages/serverAgreement/serverAgreement">用户服务协议</navigator>
+  </view>
+
+
+
+
+  <!-- <view class='con'>
+    <button bindtap='logtoHomepage' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" > 登录 </button>
+  </view>
+  <view class='bot'>
+    <text>登录代表您已经同意</text>
+    <navigator>Ucan用户协议，隐私协议</navigator>
+  </view> -->
+
+
+</view>

@@ -1,0 +1,3 @@
+
+<canvas   canvas-id='share' width="{{screenWidth*2}}px" height="{{screenHeight*2}}px" style='width:{{screenWidth}}px;height:{{screenWidth/375*592}}px;'  hidden='{{canvasHidden}}'  bindtap="saveImg" >
+  </canvas> 

@@ -1,0 +1,522 @@
+<view class="title" style="z-index:10000;height:{{menuHeight+menuTop+8}}px;padding-bottom:10px;background:white;" bindtap="goback">
+  <view class="goback" style="margin-top:{{ewmTop}}px;" >
+    <image src="/icon/fitnessInfo/goback.png"></image>
+  </view>
+  <view style="margin-top:{{ewmTop}}px;font-size: 36rpx;font-family: PingFang SC;font-weight: bold;color: #333333;">{{testdate}}</view>
+</view>
+<!-- top -->
+<view class="top">
+  <view class="userphoto">
+    <!-- <open-data type="userAvatarUrl" class="slefimg"></open-data> -->
+    <image wx:if="{{userInbodyImg}}" src="{{userInbodyImg}}" class="slefimg" mode="aspectFill"></image>
+    <view wx:else class="slefFirstname" >{{userInbodyfirstname}}</view>
+  </view>
+  <view class="username" >{{uiName}}</view>
+</view>
+
+<view class="together">
+  <view class="togeth_v1">
+    <text>{{info.body_age}}</text>
+    <view>身体年龄/岁</view>
+  </view>
+  <view class="togeth_v2">
+    <text>{{info.score}}</text>
+    <view>健康评分/分</view>
+  </view>
+  <view class="togeth_v3">
+    <text>{{info.bmi_jiugongge}}</text>
+    <view>体型判定</view>
+  </view>
+</view>
+
+<view class="indicator">
+  <view class="indicatorInfo">
+    <view class="indicatorInfo_titile">
+      <image src="/icon/fitnessInfo/warn.png"></image>
+      <text>警示指标</text>
+    </view>
+
+    <view class="indicatorInfo_con">
+      <block wx:for="{{info.condition}}">
+        <view class="conditionList" wx:if="{{item.bol!=0}}">
+          <text>{{item.name}}{{item.num}}</text>
+          <image wx:if="{{item.bol==1}}" src="/icon/fitnessInfo/arrows_down.png"></image>
+           <image wx:if="{{item.bol==-1}}" src="/icon/fitnessInfo/arrows_down.png" style="transform:rotate(180deg);"></image>
+        </view>
+      </block>
+    </view>
+
+  </view>
+</view>
+<!-- 分析 -->
+<view class="analyse">
+  <view class="userBody">
+    <view class="usertitle">
+      <view>
+        <image src="/icon/fitnessInfo/titleicon.png"></image>
+        <text>身体成分分析</text>
+      </view>
+      <image src="/icon/fitnessInfo/down.png" class="isshow" bindtap="bodyShow"></image>
+    </view>
+    <view class="userBodyCon" wx:if="{{userBodyShow}}">
+      <!-- userBody_v1 -->
+      <view class="userBody_v1">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">体重</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.weight}}kg</text>
+          <view class="progress-box">
+            <progress percent="{{info.weight>info.weight_max?85:info.weight<info.weight_min?20:0}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[0].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[0].bol==1?'-':(info.condition[0].bol==-1?'+':'')}}{{info.condition[0].differ}}kg</text>
+
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.weight_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.weight_max}}</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <!-- userBody_v2 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">骨骼肌</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.smm}}kg</text>
+          <view class="progress-box">
+            <progress percent="{{info.smm==0?0:50}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[2].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[2].bol==1?'-':(info.condition[2].bol==-1?'+':'')}}{{info.condition[2].differ}}kg</text>
+          <view>
+            <view>
+              <view class="kong" wx:if="{{info.smm_min}}"></view>
+              <text>{{info.smm_min}}</text>
+            </view>
+            <view>
+              <view class="kong" wx:if="{{info.smm_max}}"></view>
+              <text> {{info.smm_max}}</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <!-- userBody_v3 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">蛋白质</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.protein}}kg</text>
+          <view class="progress-box">
+            <progress percent="{{info.protein>info.protein_max?85:(info.protein_min>info.protein?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[1].bol==0?'userBody_numTarget1':'userBody_numTarget'}}" >需 {{info.condition[1].bol==1?'-':(info.condition[1].bol==-1?'+':'')}}{{info.condition[1].differ}}kg</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.protein_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.protein_max}}</text>
+            </view>
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+      <!-- userBody_v4 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">体脂肪</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.fat}}kg</text>
+          <view class="progress-box">
+            <progress percent="{{info.fat>info.fat_max?85:(info.fat_min>info.fat?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[3].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[3].bol==1?'-':(info.condition[3].bol==-1?'+':'')}}{{info.condition[3].differ}}kg</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.fat_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.fat_max}}</text>
+            </view>
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+      <!-- userBody_v5 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">身体水分</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.water}}kg</text>
+          <view class="progress-box">
+            <progress percent="{{info.water>info.water_max?85:(info.water_min>info.water?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[4].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[4].bol==1?'-':(info.condition[4].bol==-1?'+':'')}}{{info.condition[4].differ}}kg</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.water_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.water_max}}</text>
+            </view>
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- fat -->
+  <view class="fat userBody">
+    <view class="usertitle">
+      <view>
+        <image src="/icon/fitnessInfo/titleicon.png"></image>
+        <text>肥胖分析</text>
+      </view>
+      <image src="/icon/fitnessInfo/down.png" class="isshow" bindtap="fatShow"></image>
+    </view>
+    <view class="userBodyCon" wx:if="{{fatBodyShow}}">
+
+     <!-- userBody_v1 -->
+      <view class="userBody_v1">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">体质指数</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.bmi}}</text>
+          <view class="progress-box">
+            <progress percent="{{info.bmi>info.bmi_max?85:info.bmi<info.bmi_min?20:0}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+        <view class="userBody_num">
+          <text class="{{info.condition[7].bol==0?'userBody_numTarget1':'userBody_numTarget'}}" >需 {{info.condition[7].bol==1?'-':(info.condition[7].bol==-1?'+':'')}}{{info.condition[7].differ}}kg/m²</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.bmi_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.bmi_max}}</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <!-- userBody_v2 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">体脂百分比</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.pbf}}%</text>
+          <view class="progress-box">
+            <progress percent="{{info.pbf>info.pbf_max?85:(info.pbf_min>info.pbf?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[5].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[5].bol==1?'-':(info.condition[5].bol==-1?'+':'')}}{{info.condition[5].differ}}%</text>
+          <view>
+            <view>
+              <view class="kong" wx:if="{{info.pbf_min}}"></view>
+              <text>{{info.pbf_min}}%</text>
+            </view>
+            <view>
+              <view class="kong" wx:if="{{info.pbf_max}}"></view>
+              <text> {{info.pbf_max}}%</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- userBody_v3 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">腰臀比</text>
+          <view class="domian">
+            <text>偏低</text>
+            <text>正常</text>
+            <text>偏高</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.whr}}</text>
+          <view class="progress-box">
+            <progress percent="{{info.whr>info.whr_max?85:(info.whr_min>info.whr?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.condition[6].bol==0?'userBody_numTarget1':'userBody_numTarget'}}">需 {{info.condition[6].bol==1?'-':(info.condition[6].bol==-1?'+':'')}}{{info.condition[6].differ}}%</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>{{info.whr_min}}</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text> {{info.whr_max}}</text>
+            </view>
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+      <!-- userBody_v4 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">内脏脂肪</text>
+          <view class="domian">
+            <text>正常</text>
+            <text>超标</text>
+            <text>危险</text>
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.vfi}}</text>
+          <view class="progress-box">
+            <progress percent="{{info.vfi>14?85:(10>info.vfi?20:50)}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="{{info.vfidiffer!=0?'userBody_numTarget':'userBody_numTarget1'}}"> 需-{{info.vfidiffer}}</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>10</text>
+            </view>
+            <view>
+              <view class="kong"></view>
+              <text>14</text>
+            </view>
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+      <!-- userBody_v5 -->
+      <view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">脂肪肝风险</text>
+          <view class="domian">
+         
+            <text>正常</text>
+      
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.liver_risk}}%</text>
+          <view class="progress-box">
+            <progress percent="{{info.liver_risk}}" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="userBody_numTarget" wx:if="{{info.liver_risk>50}}">需降低 {{info.liver_risk-50}}%</text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text>50%</text>
+            </view>
+          
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+         <!-- userBody_v6 -->
+<view class="userBody_v1 userBody_v2">
+        <view class="userBody_v1Title">
+          <text class="userBody_v1Titletop">脂肪控制量</text>
+          <view class="domian">
+         
+            <!-- <text>正常</text> -->
+      
+          </view>
+        </view>
+
+        <view class="userBody_progress">
+          <text>{{info.fat_control}}kg</text>
+          <view class="progress-box">
+            <progress percent="0" activeColor="linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66)" active stroke-width="20" border-radius="10" />
+          </view>
+        </view>
+
+        <view class="userBody_num">
+          <text class="userBody_numTarget" wx:if="false"></text>
+          <view>
+            <view>
+              <view class="kong"></view>
+              <text></text>
+            </view>
+          
+          </view>
+          <!-- <view>
+            <text>{{info.protein_min}}</text>
+            <text>{{info.protein_max}}</text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- muscle -->
+  <view class="muscle">
+    <view class="muscleCon">
+      <view class="muscleCon1">
+        <view class="muscleTitle">
+          <image src="/icon/fitnessInfo/titleicon.png"></image>
+          <text>节段肌肉</text>
+        </view>
+        <!-- muscleCon1 -->
+        <view class="muscleBody1">
+          <image src="/icon/fitnessInfo/body1.png"></image>
+          <view class="muscleBodyCon1 muscleBodyCon">
+            <view>左上肢</view>
+            <view>{{info.la_muscle}}kg</view>
+            <view>偏高</view>
+          </view>
+          <view class="muscleBodyCon2 muscleBodyCon">
+            <view>右上肢</view>
+            <view>{{info.ra_muscle}}kg</view>
+            <view>偏高</view>
+          </view>
+          <view class="muscleBodyCon3 muscleBodyCon">
+            <view>左下肢</view>
+            <view>{{info.ll_muscle}}kg</view>
+            <view>偏低</view>
+          </view>
+          <view class="muscleBodyCon4 muscleBodyCon">
+            <view>左下肢</view>
+            <view>{{info.rl_muscle}}kg</view>
+            <view>偏低</view>
+          </view>
+        </view>
+
+      </view>
+      <view class="muscleCon2">
+
+        <view class="muscleTitle">
+          <image src="/icon/fitnessInfo/titleicon.png"></image>
+          <text>节段脂肪</text>
+        </view>
+        <!-- muscleCon1 -->
+        <view class="muscleBody1">
+          <image src="/icon/fitnessInfo/body2.png"></image>
+          <view class="muscleBodyCon1 muscleBodyCon">
+            <view>左上肢</view>
+            <view>{{info.la_fat}}kg</view>
+            <view>偏高</view>
+          </view>
+          <view class="muscleBodyCon2 muscleBodyCon">
+            <view>右上肢</view>
+            <view>{{info.ra_fat}}kg</view>
+            <view>偏高</view>
+          </view>
+          <view class="muscleBodyCon3 muscleBodyCon">
+            <view>左下肢</view>
+            <view>{{info.ll_fat}}kg</view>
+            <view>偏低</view>
+          </view>
+          <view class="muscleBodyCon4 muscleBodyCon">
+            <view>左下肢</view>
+            <view>{{info.rl_fat}}kg</view>
+            <view>偏低</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<my-component my-property='{{aa}}' /> 
+<view class='all'>
+   <view class='con'>
+     <text>新的身高：</text>
+     <input type='number' placeholder='请输入身高(cm)' placeholder-class='inp' bindinput='gethigh' > </input>
+   </view>
+   <button bindtap='sethigh'>更新身高</button>
+</view>

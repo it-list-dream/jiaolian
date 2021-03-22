@@ -1,0 +1,30 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/guidePage/guidePage",
+          "pathName": "pages/guidePage/guidePage",
+          "query": "",
+          "scene": 1022
+        },
+        {
+          "name": "thirdly_pages/order_time/order_time",
+          "pathName": "thirdly_pages/order_time/order_time",
+          "query": "userid=2155",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

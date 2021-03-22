@@ -1,0 +1,314 @@
+/* thirdly_pages/Vip-dossier/Vip-dossier.wxss */
+page{
+  background:linear-gradient(90deg,rgba(75,95,255,1) 0%,rgba(87,41,231,1) 100%);
+}
+.back{
+  height: 60rpx;
+  width: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ position: fixed;
+  left: 20rpx;
+
+    z-index: 100;
+   
+}
+.back cover-image{
+ 
+
+  height: 35rpx;
+  width: 20rpx;
+}
+.all{
+ 
+  width: 100%;
+  margin-top: 80px;
+  padding:0rpx 62rpx 0rpx 48rpx;
+
+
+}
+.toast{
+  border-radius: 10rpx;
+  position: fixed;
+  top:688rpx;
+  left: 273rpx;
+  font-size: 28rpx;
+  z-index: 1000;
+  line-height: 70rpx;
+  text-align: center;
+  height:70rpx;
+  width: 205rpx;
+  background:rgba(0,0,0,0.6) ;
+  color: #fff;
+}
+.base{
+padding:54rpx 0rpx 32rpx 0rpx;
+height: 766rpx;
+}
+.baseName{
+  margin-bottom: 32rpx;
+ display: flex;
+ align-items: center;
+  height: 48rpx;
+  font-size:34rpx;
+font-family:PingFangSC-Medium,PingFang SC;
+font-weight:500;
+color:rgba(254,254,255,1);
+line-height:48rpx;
+}
+.baseName>image{
+  width: 34rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+}
+.baseStyle{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  height: 600rpx;
+  width: 100%;
+}
+.baseStyle>.baseOne{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:24rpx 0rpx 24rpx 48rpx;
+  width:296rpx;
+height:88rpx;
+background:rgba(254,254,255,1);
+border-radius:44rpx;
+}
+.baseOne>view:nth-child(1){
+ margin-right: 24rpx;
+  width:20rpx;
+height:20rpx;
+
+border-radius: 50%;
+}
+.baseOne>view:nth-child(2){
+  height:40rpx;
+font-size:28rpx;
+font-family:PingFangSC-Medium,PingFang SC;
+font-weight:500;
+color:rgba(102,102,102,1);
+line-height:40rpx;
+}
+
+.baseOne>view:nth-child(3){
+  margin-left: 2rpx;
+  width: 80rpx;
+  height:40rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(102,102,102,1);
+line-height:40rpx;
+}
+.baseOne>input{
+ text-indent:2rpx;
+  width: 100rpx;
+  height:40rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(102,102,102,1);
+line-height:40rpx;
+text-overflow: clip;
+overflow: hidden;
+white-space: nowrap;
+cursor: auto;
+}
+.baseOne>input-placeholder{
+  color:rgba(118,129,150,0.7);
+}
+.slide{
+  height: 1510rpx;
+  width: 100%;
+}
+.slideStyle{
+  padding:48rpx 60rpx 0rpx 44rpx;
+  height: 1432rpx;
+  background:rgba(255,255,255,1);
+border-radius:8rpx;
+border:1px solid rgba(242,244,248,1);
+}
+.slideName{
+  height:20px;
+font-size:13px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(118,129,150,1);
+line-height:20px;
+}
+.slideOne>view{
+  display: flex;
+  flex-direction: row;
+align-items: flex-end;
+margin-bottom: 26rpx;
+
+}
+.slideOne>view>.slideName{
+  margin-right: 36rpx;
+  height:50rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(118,129,150,1);
+  line-height:40rpx;
+}
+.slideOne:nth-child(2)>view>.slideName{
+  margin-right: 10rpx; 
+}
+.slideOne:nth-child(4)>view>.slideName{
+  margin-right: 106rpx;
+}
+.slideOne>view>input{
+  width:152rpx;
+height:100rpx;
+background:rgba(242,244,248,1);
+border-radius:16rpx;
+font-size:80rpx;
+font-family:PingFang-SC-Heavy,PingFang-SC;
+font-weight:800;
+color:rgba(255,198,81,1);
+text-align: center;
+margin-right: 8rpx;
+z-index: 0;
+}
+.slideOne>view>view:nth-child(2){
+  width:152rpx;
+height:100rpx;
+background:rgba(242,244,248,1);
+border-radius:16rpx;
+font-size:80rpx;
+font-family:PingFang-SC-Heavy,PingFang-SC;
+font-weight:800;
+color:rgba(255,198,81,1);
+text-align: center;
+margin-right: 8rpx;
+z-index: 0;
+}
+.slideOne>view>text{
+  height:50rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Heavy,PingFang-SC;
+  font-weight:800;
+  color:rgba(255,198,81,1);
+  line-height:40rpx;
+}
+.Other{
+ 
+  padding:66rpx 0rpx 60rpx 0rpx;
+}
+.OtherStyle{
+  height: 488rpx;
+  padding: 52rpx 44rpx 60rpx 44rpx;
+  background: rgba(255,255,255,1);
+  border-radius:8px;
+}
+.OtherOne{
+  margin-bottom: 32rpx;
+  height: 52rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.OtherOne>view{
+  height:40rpx;
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(13,14,21,1);
+line-height:40rpx;
+margin-right: 16rpx;
+}
+.OtherOne>input{
+  text-align: center;
+  width:160rpx;
+height:52rpx;
+line-height: 52rpx;
+background:rgba(242,244,248,1);
+border-radius:26rpx;
+font-size:24rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(118,129,150,1);
+}
+.OtherOne>view:nth-child(2){
+  text-align: center;
+  width:160rpx;
+height:52rpx;
+line-height: 52rpx;
+background:rgba(242,244,248,1);
+border-radius:26rpx;
+font-size:24rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(118,129,150,1);
+}
+.OtherStyle>textarea{
+
+padding: 32rpx 24rpx;
+box-sizing: border-box;
+width: 100%;
+height: 140rpx;
+background: rgba(230,234,241,0.5);
+border-radius: 12rpx;
+font-size: 28rpx;
+font-family: PingFang-SC-Medium,PingFang-SC;
+font-weight: 500;
+color: #000;
+
+}
+.OtherStyle>.textarea{
+
+  padding: 32rpx 24rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 140rpx;
+  background: rgba(230,234,241,0.5);
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium,PingFang-SC;
+  font-weight: 500;
+
+  color:rgba(118,129,150,0.7);
+  }
+.OtherStyle>.remarks{
+  font-size:28rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(13,14,21,1);
+  line-height:40rpx;
+  margin-bottom: 22rpx;
+
+
+}
+.button{
+  height:128rpx;
+  background:linear-gradient(90deg,rgba(75,95,255,1) 0%,rgba(87,41,231,1) 100%);
+  position: fixed;
+  bottom: 0rpx;
+width: 100%;
+padding:24rpx 0;
+z-index: 10;
+
+}
+.button>view{
+  width: 630rpx;
+
+  height:88rpx;
+background:rgba(255,255,255,1);
+border-radius:8rpx;
+font-size:17px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(77,89,253,1);
+line-height:88rpx;
+text-align: center;
+margin:0 auto
+}
+

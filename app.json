@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/guidePage/guidePage",
+    "pages/log_in/log_in",
+    "pages/index/index",
+    "second_pages/member/member",
+    "thirdly_pages/Vip-dossier/Vip-dossier",
+    "thirdly_pages/Coach-dossier/Coach-dossier",
+    "thirdly_pages/Member_information/Member_information",
+    "pages/serverAgreement/serverAgreement",
+    "second_pages/cardinfo/cardinfo",
+    "second_pages/order/order",
+    "second_pages/mes/mes",
+    "thirdly_pages/order_time/order_time",
+    "second_pages/setting/setting",
+    "second_pages/toamountclass/toamountclass",
+    "second_pages/performance/performance",
+    "thirdly_pages/changepwd/changepwd",
+    "thirdly_pages/myhigh/myhigh",
+    "thirdly_pages/activity/activity",
+    "thirdly_pages/fitnessInfo/fitnessInfo",
+    "components/slide/slide"
+    
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+  },
+  "plugins": {
+    "calendar": {
+      "version": "1.1.3",
+      "provider": "wx92c68dae5a8bb046"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

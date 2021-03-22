@@ -1,0 +1,75 @@
+<view class="all" style="position:{{showroul?'fixed':''}};">
+  <!-- <view class="delete2" style="top:{{top1}}px;height:{{high1}}px" bindtap="back1"> -->
+  <view class="delete2" style="height:{{ top1+high1+8}}px;padding-top:{{top2}}px;background: {{col}};" bindtap="back1">
+
+    <image src="/icon/delete2.png"></image>
+  </view>
+  <cover-view wx:if="{{showroul}}" class="showrule">
+    <cover-view class="delete" bindtap="closeroul"></cover-view>
+    <cover-image src="/icon/rulecon.png"></cover-image>
+  </cover-view>
+
+
+  <view class="topimg">
+    <image src="/icon/recommendcon.png"></image>
+  </view>
+
+  <view class="bot">
+    <!-- <view>活动内容</view> -->
+    <view>
+      在您不影响工作的前提下，如果您感觉使用我们的系统特别满意，请帮忙推荐，推荐成功并使用，就可拿到相应分成佣金。
+    </view>
+  </view>
+
+
+  <view class="formgroup">
+    
+
+
+
+    <cover-view class="rule">
+      <cover-image src="/icon/ruleimg.png" bindtap="showroul">
+      </cover-image>
+    </cover-view>
+    <view class="write">
+      <view>请填写推荐信息</view>
+      <image src="/icon/write.png"></image>
+    </view>
+    <view class="venuetype" style="color:{{col1}}">场馆类型* ：</view>
+    <radio-group class="venuetypecon" bindchange="radiog">
+      <label>
+        <radio value="健身房"></radio>
+        <text>健身房</text>
+      </label>
+      <label>
+        <radio value="工作室"></radio>
+        <text>工作室</text>
+      </label>
+      <label>
+        <radio value="体育馆"></radio>
+        <text>体育馆</text>
+      </label>
+    </radio-group>
+
+    <view class="fintness">健身房名称 ： </view>
+    <input class="inp" bindinput="getinp1" type="text"></input>
+    <view class="formtop" style="color:{{col2}}">负责人姓名* ： </view>
+    <input class="inp" bindinput="getinp2" type="text"></input>
+    <view class="formtop" style="color:{{col3}}">负责人职务* ： </view>
+    <input class="inp" bindinput="getinp3" type="text"></input>
+    <view class="formtop" style="color:{{col4}}">联系方式* ： </view>
+    <input class="inp" bindinput="getinp4" type="text"></input>
+    <view class="formtop" style="color:{{col5}}">提供者姓名* ： </view>
+    <input class="inp" bindinput="getinp5" type="text" value="{{AI_Name}}"></input>
+    <view class="formtop" style="color:{{col6}}">提供者联系方式* ： </view>
+
+    <input class="inp" bindinput="getinp6" type="text" value="{{AI_Tel}}"></input>
+
+    <view class="formtop">备注 ： </view>
+    <textarea class="inparea" bindinput="getinp7" placeholder="如打电话咨询，是否可以提到您" type="text"></textarea>
+
+    <view class="sub" bindtap="sub">确认提交</view>
+  </view>
+
+
+</view>

@@ -1,0 +1,83 @@
+<my-component my-property='{{aa}}' />
+<view class="line" style='margin-top:{{high}}rpx'></view>
+<view class="container">
+  <view class='mydate'>
+    <block wx:for="{{dayList}}" wx:key="index">
+      <view class="everyday {{showId==index ? 'active' : ''}}" bindtap='changebg' data-day='{{item.month}}-{{item.day}}' data-year='{{item.year}}' data-index="{{index}}">
+        <view>{{item.week}}</view>
+        <view>{{item.month}}.{{item.day}}</view>
+      </view>
+    </block>
+    <view class="rili {{date ? 'bg1' : 'bg2' }}" bindtap='todate'>
+      <image src="/icon/rili.png" wx:if="{{date}}"></image>
+      <image src="/icon/rili2.png" wx:else="{{date}}"></image>
+    </view>
+  </view>
+  <view class="mod" wx:if="{{date}}" style="margin-top:{{high1}}rpx" bindtap="closmdel">
+    <calendar wx:if="{{date}}" calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" binddayClick="dayClick" bindtap='cl' />
+  </view>
+</view>
+<view class='time'>
+  <ul>
+    <block wx:for="{{data1}}" wx:key="k1">
+      <li>
+        <view class="{{item.type == 1?'keyuyue':'mycol'}}" style="color:{{num==index+1 ? 'white':''}};background:{{num==index+1 ? 'rgba(48,122,245,1)':''}}" data-value="{{item.starttime}}" data-num="{{index+1}}" data-s="{{item.starttime}}" data-e="{{item.endtime}}" bindtap="{{item.type == 1?'shownum':(item.type == -1?'cantorder':(item.type == 2?'cantorder1':'cantorder2'))}}">
+          {{item.starttime}}
+        </view>
+      </li>
+    </block>
+  </ul>
+  <ul>
+    <block wx:for="{{data2}}" wx:key="k2">
+      <li>
+        <view class="{{item.type == 1?'keyuyue':'mycol'}}" style="color:{{num==index+13 ? 'white':''}};background:{{num==index+13 ? 'rgba(48,122,245,1)':''}}" bindtap="{{item.type == 1?'shownum':(item.type == -1?'cantorder':(item.type == 2?'cantorder1':'cantorder2'))}}" data-value="{{item.starttime}}" data-num="{{index+13}}" data-s="{{item.starttime}}" data-e="{{item.endtime}}">
+          {{item.starttime}}
+        </view>
+      </li>
+    </block>
+  </ul>
+  <ul>
+    <block wx:for="{{data3}}" wx:key="k3">
+      <li>
+        <view class="{{item.type == 1?'keyuyue':'mycol'}}" style="color:{{num==index+25 ? 'white':''}};background:{{num==index+25 ? 'rgba(48,122,245,1)':''}}" data-value="{{item.starttime}}" data-num="{{index+25}}" data-s="{{item.starttime}}" data-e="{{item.endtime}}" bindtap="{{item.type == 1?'shownum':(item.type == -1?'cantorder':(item.type == 2?'cantorder1':'cantorder2'))}}">
+          {{item.starttime}}
+        </view>
+        <!-- type = 2 改时间已经被预约 -1 改时间已过 1 代表改时间可以预约 3 代表上课时间-->
+         <!-- <view class="{{item.type == 1?'keyuyue':'mycol'}}" style="color:{{num==index+13 ? 'white':''}};background:{{num==index+13 ? 'rgba(48,122,245,1)':''}}" data-value="{{item.starttime}}" data-num="{{index+13}}" data-s="{{item.starttime}}" data-e="{{item.endtime}}" bindtap="handleTime" data-type="{{item.type}}">
+          {{item.starttime}}
+        </view> -->
+      </li>
+    </block>
+  </ul>
+  <view class='phone'></view>
+  <view class='bot'>
+    <button bindtap='succ'>预约</button>
+  </view>
+</view>
+<!-- 弹出提示框 -->
+<view class="chonsebg" wx:if="{{chose}}" catchtap="closebacground">
+  <view class="chonsecon">
+    <view class="deleicon">
+      <image src="/icon/shanchu.png"></image>
+    </view>
+    <block wx:for="{{classlist}}">
+      <view catchtap="upclass" data-co_id="{{item.CO_ID}}" data-cp_id="{{item.CP_ID}}" class="chonseList" data-name="{{item.CP_Name}}" style="border-top:{{index?'1px solid rgba(230,234,241,1)':'none'}}">
+        <view class="name">{{item.CP_Name}}({{item.CO_Have}}节)</view>
+        <view class="co_avtive" style="color:{{item.textcolor}} ">截止:{{item.CO_ActiveEnd}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 选择场地 -->
+<view class="chonsebg1" wx:if="{{seatshow}}" bindtap="closebacground">
+  <view class="chonseSeat">
+    <view class="seatTitle">请选择场地</view>
+    <scroll-view class="seatList" scroll-y="true" style="max-height:200rpx">
+      <block wx:for="{{seat}}">
+        <view bindtap="uploadSeat" data-FieldName="{{item.FieldName?item.FieldName:''}}" style="border-top:2rpx solid rgba(244,244,244,1)">
+          <view class="FieldName">{{item.FieldName}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,98 @@
+<view style="overflow:hidden">
+	<my-component my-property='{{aa}}' />
+  <cover-view class="back" style="top:{{menuTop}}px" bindtap="goback"> <cover-image src="/icon/goback.png" ></cover-image></cover-view>
+ 
+	<!-- <view class="line" style='margin-top:{{high}}rpx'></view> -->
+	<view class="all" style="padding-bottom :{{status?'138rpx':'78rpx'}}">
+		<view class="base">
+			<view class="baseName">
+				<image src="../../icon/basename.png"> </image>
+				<text>基础信息：（必填项）</text>
+			</view>
+
+			<view class='baseStyle'>
+				<view class="baseOne" wx:for="{{baseData}}" wx:key="{{index}}" bindtap="inputin" data-idx="{{index}}">
+					<view style="background:{{status?index==focusindex?'rgba(255,198,81,1)':'rgba(200,206,217,1)':'rgba(200,206,217,1)'}}"></view>
+					<view>{{item.name}}</view>
+					<input wx:if="{{status}}"  type="digit" placeholder="{{item.placeholder}}" bindinput="basedata" data-idx="{{index}}" value="{{item.value}}"  bindblur="blurdata" bindfocus="focuedata" placeholder-style="color:#768196" style="color:#666666"></input>
+					<view wx:else>{{item.placeholder}}{{item.unit}}</view>
+				</view>
+
+			</view>
+		</view>
+		<view class="slide">
+			<view class="baseName">
+				<image src="../../icon/body.png"> </image>
+				<text>体态：（必填项）</text>
+			</view>
+			<view class="slideStyle">
+				<view class="slideOne">
+					<view>
+						<view class="slideName">一分钟蹲起次数</view>
+						<input  wx:if="{{status}}" value="{{vall}}" bindinput="inputVal" type="number" maxlength="3"></input>
+						<view wx:else>{{Vdossier.SquatCount}}</view>
+				
+						<text>次</text>
+					</view>
+						<slide id="rule" min="0" max="1000" def="0" scoll="{{val}}" bind:slide="slideTrigger" wx:if="{{status}}" value="{{vall}}" stopSrcoll="{{stopSrcol}}"></slide>
+						<slide id="rule" min="0" max="1000" def="0"  wx:else   stopSrcoll="{{stopSrcol}}"></slide>
+				</view>
+				<view class="slideOne">
+					<view>
+						<view class="slideName">一分钟俯卧撑次数</view>
+						<input wx:if="{{status}}" value="{{vall1}}" bindinput="inputVal1" type="number" maxlength="3"></input>
+						<view wx:else>{{Vdossier.PushUpsCount}}</view>
+						<text>次</text>
+					</view>
+					<slide id="rule" min="0" max="1000" def="0" scoll="{{val1}}" bind:slide="slideTrigger1" wx:if="{{status}}" stopSrcoll="{{stopSrcol}}"></slide>
+						<slide id="rule" min="0" max="1000" def="0" wx:else   stopSrcoll="{{stopSrcol}}"></slide>
+				</view>
+				<view class="slideOne">
+					<view>
+						<view class="slideName">一分钟卷腹次数</view>
+						<input  wx:if="{{status}}" value="{{vall2}}" bindinput="inputVal2" type="number" maxlength="3"></input>
+						<view wx:else>{{Vdossier.BellyCount}}</view>
+						<text>次</text>
+					</view>
+					<slide id="rule" min="0" max="1000" def="0" scoll="{{val2}}" bind:slide="slideTrigger2" wx:if="{{status}}" stopSrcoll="{{stopSrcol}}"></slide>
+						<slide id="rule" min="0" max="1000" def="0" wx:else   stopSrcoll="{{stopSrcol}}"></slide>
+				</view>
+				<view class="slideOne">
+					<view>
+						<view class="slideName">平板支撑</view>
+						<input  wx:if="{{status}}" value="{{vall3}}" bindinput="inputVal3" type="number" maxlength="3"></input>
+						<view wx:else>{{Vdossier.FlatSupport}}</view>
+						<text>秒</text>
+					</view>
+					<slide id="rule" min="0" max="1000" def="0" scoll="{{val3}}" bind:slide="slideTrigger3" wx:if="{{status}}" stopSrcoll="{{stopSrcol}}"></slide>
+						<slide id="rule" min="0" max="1000" def="0" wx:else  stopSrcoll="{{stopSrcol}}"></slide>
+				</view>
+			</view>
+		</view>
+		<view class="Other">
+			<view class="baseName">
+				<image src="../../icon/basename.png"> </image>
+				<text>其他信息</text>
+			</view>
+			<view class="OtherStyle">
+				<view class="OtherOne">
+					<view>体重指数:</view>
+					<input wx:if="{{status}}" type="digit" placeholder="0kg/㎡" bindinput="otherdata" data-idx="1"  value="{{otherValue}}"  bindblur="blurother" bindfocus="focueother" placeholder-style="color:#768196" style="color:#666666"></input>
+					<view wx:else>{{otherValue}}kg/㎡</view>
+				</view>
+				<view class="OtherOne">
+					<view>基础代谢:</view>
+				<input type="digit" wx:if="{{status}}"  placeholder="0Kcal" bindinput="otherdata" data-idx="2"  value="{{otherValue1}}"  bindblur="blurother" bindfocus="focueother" placeholder-style="color:#768196" style="color:#666666"></input>
+					<view wx:else>{{otherValue1}}Kcal</view>
+				</view>
+				<view class="remarks">备注：</view>
+				<textarea cursor-spacing='5' wx:if="{{status}}" bindinput="areaInput" ></textarea>
+				<view class="textarea" wx:else>{{areaValue==0?"":areaValue}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="button" wx:if="{{status}}" bindtap="addVip">
+		<view>确认添加</view>
+	</view>
+	<view class="toast" hidden="{{!showToast}}">{{msg}}</view>
+</view>

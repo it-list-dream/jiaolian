@@ -1,0 +1,15 @@
+<my-component my-property='{{aa}}' />
+<view class="changepwd" style=  "margin-top:{{high2}}rpx">
+   <view class="mypwd">
+     <view>
+        <input type="password" placeholder="旧密码" value='{{oldValue}}' bindinput="watcholdValue"></input>
+     </view>
+     <view>
+        <input type="password" placeholder="新密码" value='{{newValue}}' bindinput="watchnewValue"></input>
+     </view>
+     <view>
+        <input type="password" placeholder="确认密码" value='{{readyValue}}' bindinput="watchreadyValue"></input>
+     </view>
+   </view>
+   <view class="confirm" bindtap="confirm">完成</view>
+</view>

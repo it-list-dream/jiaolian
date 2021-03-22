@@ -1,0 +1,128 @@
+<view style="position:{{phonemodel?'fixed':''}}" class="page">
+<my-component my-property='{{aa}}' />
+<view class="mes">
+<view class="fixed">
+<view class="line" style='margin-top:{{high}}rpx'></view>
+  <view class="navbar">
+    <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" catchtap="navbarTap">
+      <image wx:if="{{index==currentTab}}" src="/icon/schange.png"></image>
+      <image wx:else src=""></image>{{item}}</view>
+  </view>
+</view>
+
+
+  <!-- 到场提醒 -->
+  <view hidden="{{currentTab!==0}}" class='bir'>
+    <view class="info">
+      <view class="info-con">
+        <block wx:for="{{listinfo}}" wx:key="{{index}}">
+          <view class="info-flex">
+            <!-- <image wx:if="{{item.Face}}" src="{{item.Face}}" class="head-img"></image> -->
+            <image wx:if="{{item.Face}}"   mode="aspectFill"  src="{{item.Face}}" class="head-img"></image>
+
+            <view wx:else class="notimage">{{item.firstname}}</view>
+            <view class="user" bindtap="toinfomation" data-info="{{item}}">
+              <view class="user-info">
+                <view>{{item.UI_Name}} </view>
+                <view> ({{item.DiffLastDateMsg}})</view> 
+                </view>
+              <view>{{item.UI_Phone}}</view>
+            </view>
+            <view class="phone" bindtap="callphone1" data-phone="{{item.UI_Phone}}"  data-name="{{item.UI_Name}}">
+              <image src="/icon/phone.png"></image>
+            </view>
+          </view>
+
+        </block>
+        <view wx:if="{{!listinfo.length}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 生日提醒 -->
+  <view hidden="{{currentTab!==1}}" class='bir upcom'>
+    <view class="info">
+      <view class="info-con">
+        <block wx:for="{{listinfo1}}" wx:key="{{index}}">
+          <view class="info-flex">
+            <image wx:if="{{item.UI_Face}}" src="{{item.UI_Face}}"  mode="aspectFill" class="head-img"></image>
+            <view wx:else class="notimage">{{item.firstname}}</view>
+            <view class="user" bindtap="toinfomation" data-info="{{item}}">
+              <view class="user-info">
+                <view>{{item.UI_Name}} </view>
+                <view> ({{item.DiffDay}}天后生日)</view>
+                 </view>
+              <view class="user-infob">{{item.UI_LastDate}}
+                <text> {{item.UI_Phone}}</text>
+              </view>
+            </view>
+            <view class="phone" bindtap="callphone1" data-phone="{{item.UI_Phone}}" data-name="{{item.UI_Name}}">
+              <image src="/icon/phone.png"></image>
+            </view>
+          </view>
+        </block>
+         <view wx:if="{{!listinfo1.length}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 课程提醒 -->
+  <view hidden="{{currentTab!==2}}" class='bir'>
+    <view class="info">
+      <view class="info-con">
+        <block wx:for="{{listinfo4}}" wx:key="{{index}}">
+          <view class="info-flex">
+            <image wx:if="{{item.Face}}" src="{{item.Face}}"    mode="aspectFill"   class="head-img"></image>
+            <view wx:else class="notimage">{{item.firstname}}</view>
+            <view class="user" bindtap="toinfomation" data-info="{{item}}">
+              <view class="user-info">
+                <view>{{item.UI_Name}} </view>
+                <view> ({{item.CP_Name}}{{item.CO_Have}}节)</view>
+                 </view>
+              <view><text>{{item.UI_Phone}}</text>  <text style="color:#FE8473">（{{item.DayDiff}}天后到期）</text> </view>
+            </view>
+            <view class="phone" bindtap="callphone1" data-phone="{{item.UI_Phone}}" data-name="{{item.UI_Name}}">
+              <image src="/icon/phone.png"></image>
+            </view>
+          </view>
+        </block>
+         <view wx:if="{{!listinfo4.length}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 会员卡到期 -->
+  <view hidden="{{currentTab!==3}}" class='bir'>
+    <view class="info">
+      <view class="info-con">
+        <block wx:for="{{listinfo5}}" wx:key="{{index}}">
+          <view class="info-flex">
+            <image wx:if="{{item.UI_Face}}" src="{{item.UI_Face}}"  mode="aspectFill" class="head-img"></image>
+            <view wx:else class="notimage">{{item.firstname}}</view>
+            <view class="user" bindtap="toinfomation" data-info="{{item}}">
+              <view class="user-info">
+                <view>{{item.UI_Name}} </view>
+                <view> ({{item.UI_LastDate}})</view> 
+                </view>
+              <view>{{item.UI_Phone}}</view>
+            </view>
+            <view class="phone" bindtap="callphone1" data-phone="{{item.UI_Phone}}" data-name="{{item.UI_Name}}">
+              <image src="/icon/phone.png"></image>
+            </view>
+          </view>
+        </block>
+         <view wx:if="{{!listinfo5.length}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

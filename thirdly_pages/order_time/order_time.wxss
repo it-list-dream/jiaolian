@@ -1,0 +1,249 @@
+ .mydate {
+  height: 100rpx;
+}
+ .mydate .everyday{ 
+display: inline-block;
+width:100rpx;
+height:100rpx;
+ background:rgba(242,244,248,1);
+border-radius:4rpx;
+margin-right: 6rpx;
+}  
+ .mydate .everyday.active{
+ background:rgba(48, 122, 245, 1);
+} 
+ .mydate .everyday.active view{
+  color: white;
+}
+ .mydate .everyday view{
+  font-size:24rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(153,153,153,1);
+text-align: center;
+}
+ .mydate .everyday view:nth-child(1){
+margin-top: 18rpx;
+}
+ .mydate .rili{
+float: right;
+width:100rpx;
+height:100rpx;
+border-radius:4rpx;
+text-align: center;
+line-height: 140rpx;
+}
+.bg1{
+  background:rgba(48, 122, 245, 1);
+}
+.bg2{
+  background:rgba(242,244,248,1);
+}
+ .mydate .rili image{
+width:76rpx;
+height:72rpx;
+border-radius:4rpx;
+}
+/* 时间选择 */
+.time ul{
+  display: flex;
+  margin-top: 45rpx;
+  flex-wrap: wrap;
+ 
+ 
+}
+.time ul li{
+margin: 15rpx 0;
+width: 33.3%;
+
+}
+.time ul li .mycol{
+  margin: 0 auto;
+  width:150rpx;
+height:54rpx;
+border-radius:8rpx;
+border:2rpx solid rgba(153,153,153,1);
+  text-align: center;
+  font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(153,153,153,1);
+line-height: 54rpx;
+}
+.time ul li .keyuyue{
+  margin: 0 auto;
+  width:150rpx;
+height:54rpx;
+border-radius:8rpx;
+  border:1px solid rgba(48,122,245,1);
+  text-align: center;
+  font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(48,122,245,1);
+line-height: 54rpx;
+}
+.time ul li .yiyuyue{
+  margin: 0 auto;
+  width:150rpx;
+height:54rpx;
+border-radius:8rpx;
+  border:1px solid gray;
+  text-align: center;
+  font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+
+line-height: 54rpx;
+ background:gray;
+ color: white
+}
+.tive{
+  margin: 0 auto;
+  width:150rpx;
+height:54rpx;
+border-radius:8rpx;
+  border:1px solid rgba(48,122,245,1);
+  text-align: center;
+  font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:white;
+line-height: 54rpx;
+ background:rgba(48,122,245,1);
+}
+.time ul li .gco.active{
+  background:rgba(48,122,245,1);
+  color:white;
+}
+.time .phone image{
+  float: right;
+  margin-right: 10rpx;
+  width:176rpx;
+  height:176rpx;
+
+  position: fixed;
+  right: 8%;
+  bottom: 18.4%;
+}
+.time button{
+  margin: 0 8%;
+  height:44px;
+background:rgba(48,122,245,1);
+border-radius:4px;
+font-size:17px;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(255,255,255,1);
+margin-top: 236rpx;
+}
+ .time ul .gco {
+color:rgba(48,122,245,1);
+border:1px solid rgba(48,122,245,1);
+}
+.c1{
+  color:white;
+background: rgba(48,122,245,1);
+
+}
+.c2{
+  color:rgba(153,153,153,1);
+background:white;
+border: none
+}
+.chonsebg,.chonsebg1{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.chonsecon{
+  width: 600rpx;
+  max-height: 50vh;
+  overflow: auto;
+ font-size:32rpx;
+ border-radius:16rpx;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(51,51,51,1);
+  z-index: 100;
+  border: solid 1rpx rgba(244,244,244,1);
+   padding: 32rpx 60rpx;
+   background-color: white;
+   border-radius:16rpx;
+}
+.name{
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  font-size:38rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(102,102,102,1);
+}
+.co_avtive{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+font-size:28rpx;
+font-family:PingFang-SC-Regular,PingFang-SC;
+font-weight:400;
+
+}
+.chonseList{
+  /* border-top:1px solid rgba(230,234,241,1); */
+   padding: 32rpx 0;
+ 
+}
+.deleicon{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.deleicon image{
+  width:36rpx;
+height:36rpx;
+margin-right: -40rpx;
+}
+/* 选择场地 */
+.chonseSeat{
+  padding: 40rpx 0;
+   border-radius: 14rpx; 
+  position: absolute;
+  width: 80%;
+  background: white;
+  color: black;
+  z-index: 100;
+  border: solid 1rpx rgba(244,244,244,1);
+}
+.chonseSeat .seatList{
+ 
+  border-bottom: solid 0.5px rgba(244,244,244,1);
+
+}
+.chonseSeat .FieldName{
+text-align:center;
+font-size:28rpx;
+font-family:PingFang-SC-Bold;
+font-weight:400;
+color:rgba(102,102,102,1);
+padding: 30rpx 0;
+}
+/* .chonseSeat .seatTitle{
+ 
+  position: relative
+} */
+.chonseSeat .seatTitle {
+ text-align: center;
+  font-weight:600;
+  margin-bottom: 44rpx;
+  font-size: 32rpx;
+
+
+}

@@ -1,0 +1,40 @@
+.all image{
+ width: 100vw;
+ height: 1172rpx;
+}
+.all .main_con{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -110rpx
+
+}
+.all .main_con text:nth-child(1){
+ font-size:48rpx;
+font-family:Source Han Sans SC;
+font-weight:500;
+color:rgba(68,68,68,1);
+}
+.all .main_con text:nth-child(2){
+  font-size:30rpx;
+font-family:Source Han Sans SC;
+font-weight:400;
+color:rgba(102,102,102,1);
+margin-top: 27rpx;
+}
+.all .main_con .navigat{
+  width:248rpx;
+height:60rpx;
+background:rgba(28,123,239,0);
+border:1px solid rgba(48, 122, 245, 1);
+border-radius:8rpx;
+margin-top: 50rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size:24rpx;
+font-family:Source Han Sans SC;
+font-weight:400;
+color:rgba(48,122,245,1);
+margin-bottom: 20rpx;
+}

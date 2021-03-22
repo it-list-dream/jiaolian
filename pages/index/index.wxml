@@ -1,0 +1,161 @@
+<my-component my-property='{{aa}}' />
+
+<view class="all" >
+  <!-- 头部 -->
+  <view class="top" style='margin-top:{{high}}rpx'>
+    <view class="top-myinfo">
+      <view class="top-myinfo-head">
+        <view class="top-head-img">
+          <open-data type="userAvatarUrl" class="myimg"></open-data>
+        </view>
+        <view class="top-head-name">
+          <open-data type="userNickName" class="myimg"></open-data>
+        </view>
+        <image class="top-head-setting" src="/icon/setting.png" bindtap="tosetting"></image>
+      </view>
+
+      <view class="activeNew" wx:if="{{activeS}}">
+        <image src="/icon/activeNew.png" class="activeP" bindtap="torecommend"></image>
+        <view bindtap="activeCross" class="activeCross"></view>
+      </view>
+
+
+      <ul class="num">
+        <li class='num-info' bindtap="toperformance">
+          <text>{{indexList[0].AllMoney}}</text>
+          <text>售课金额</text>
+          <text>{{indexList[0].Num}}节</text>
+        </li>
+        <li class='num-info' bindtap="toamountclass" data-id="1">
+          <text>{{indexList[1].AllMoney}}</text>
+          <text>上课金额</text>
+          <text>{{indexList[1].Num}}节</text>
+        </li>
+        <li class='num-info' bindtap="tomember" data-id="0">
+          <text>{{indexList[2].Num}}</text>
+          <text>买课会员</text>
+          <text>{{indexList[2].AllMoney}}</text>
+        </li>
+        <li class='num-info' bindtap="tomembero" data-id="0">
+          <text>{{indexList[3].Num}}</text>
+          <text>无课会员</text>
+          <text>{{indexList[3].AllMoney}}</text>
+        </li>
+      </ul>
+
+
+      <view>{{address}}</view>
+      <view class="remind" wx:if="{{swiper}}">
+        <view class="image">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="text">欢迎您
+          <open-data type="userNickName" class="myimg"></open-data>到店</view>
+      </view>
+      <view class="remind" wx:else>
+        <swiper autoplay="true" class="swiper" circular="true" interval="{{interval}}">
+          <block wx:for="{{swiperList}}" wx:key="{{index}}">
+            <swiper-item class="swiperList">
+              <view class="image">
+                <image class="head" wx:if="{{item.UI_Face}}" mode="aspectFill" src="{{item.UI_Face}}"></image>
+                <image class="head" wx:else src="/icon/head.png"></image>
+              </view>
+              <view class="text">
+                {{item.UI_Name}}会员已经到{{item.GB_Name}}店
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <!--  中间内容 -->
+  <view class="con">
+    <ul class="con-info">
+      <li bindtap="tomes">
+        <view class="mess" wx:if="{{mesnum==0}}"></view>
+        <view class="mess" wx:elif="{{mesnum-mesnum0-mesnum1-mesnum2-mesnum3<=0}}"></view>
+        <view class="mes" wx:elif="{{mesnum0==0&&mesnum1==0&&mesnum2==0&mesnum3==0}}">{{mesnum}}</view>
+        <view class="mes" wx:elif="{{mesnum-mesnum0-mesnum1-mesnum2-mesnum3>0}}">{{mesnum - mesnum0 - mesnum1 - mesnum2 - mesnum3}}</view>
+        <image src="/icon/mes.png" class="tomesimg"></image>
+        <view class="con-list">消息提醒</view>
+      </li>
+      <li bindtap="tomember">
+        <image src="/icon/crown.png" class="tomesimg"></image>
+        <view class="con-list">我的会员</view>
+      </li>
+      <li bindtap="tocardinfo">
+        <image src="/icon/card.png" class="tomesimg"></image>
+        <view class="con-list">上课时间</view>
+      </li>
+    </ul>
+  </view>
+  <!--  底部意向会员信息  -->
+  <view class="order">
+
+    <view class="title">我的预约</view>
+    <view class="Norderp">
+      <image src="/icon/Norder.png" bindtap="orderuser"></image>
+    </view>
+    <view wx:if="{{orderlist.length!=0||orderlist1.length!=0||orderlist2.length!=0}}">
+      <view class="orderlist" wx:for="{{orderlist}}" wx:key="{{index}}">
+        <image wx:if="{{item.Face}}" src="{{item.Face}}" class="head-img" mode="aspectFill"></image>
+
+        <view wx:else class="notimage">{{item.firstname}}</view>
+        <view class="user-info">
+          <view>
+            <view class="username">
+              <text>  {{item.UI_Name}}</text>
+              <text> ({{item.CP_Name}})</text>
+            </view>
+            <view class="userdate">
+              <text>{{item.CS_Spenddate}}</text>
+            </view>
+          </view>
+          <text wx:if="{{item.CS_State==6||item.CS_State==7}}" class="userorder">已预约</text>
+          <text wx:else class="userorder1">已结束</text>
+        </view>
+      </view>
+      <view class="orderlist" wx:for="{{orderlist1}}" wx:key="{{index}}">
+        <image wx:if="{{item.Face}}" src="{{item.Face}}" class="head-img" mode="aspectFill"></image>
+        <view wx:else class="notimage">{{item.firstname}}</view>
+        <view class="user-info">
+          <view>
+            <view class="username">
+              <text>  {{item.UI_Name}}</text>
+              <text> ( {{item.CP_Name}})</text>
+            </view>
+            <view class="userdate">
+              <text>{{item.CS_Spenddate}}</text>
+
+            </view>
+          </view>
+          <text wx:if="{{item.CS_State==6||item.CS_State==7}}" class="userorder">已预约</text>
+          <text wx:else class="userorder1">已结束</text>
+        </view>
+      </view>
+      <view class="orderlist" wx:for="{{orderlist2}}" wx:key="{{index}}">
+        <image wx:if="{{item.Face}}" src="{{item.Face}}" class="head-img" mode="aspectFill"></image>
+        <view wx:else class="notimage">{{item.firstname}}</view>
+        <view class="user-info">
+          <view>
+            <view class="username">
+              <text>  {{item.UI_Name}}</text>
+              <text> ( {{item.CP_Name}})</text>
+            </view>
+            <view class="userdate">
+              <text>{{item.CS_Spenddate}}</text>
+            </view>
+            </view>
+            <text wx:if="{{item.CS_State==6||item.CS_State==7}}" class="userorder">已预约</text>
+            <text wx:else class="userorder1">已结束</text>
+          
+        </view>
+      </view>
+    </view>
+    <view wx:else class="noClass">
+      <image src="/icon/Noorder.png" class="Noorder"></image>
+      <view class="NoorderC">暂无预约课程</view>
+    </view>
+  </view>
+</view>

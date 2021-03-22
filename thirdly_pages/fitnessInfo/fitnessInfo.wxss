@@ -1,0 +1,408 @@
+/* 进度条的颜色 */
+.wx-progress-inner-bar{
+  border-radius: 8rpx;
+background: linear-gradient(-90deg, #FFD366, #28CF97, #FF8B66 ) !important;
+}
+.wx-progress-inner-bar {  border-radius: 10px !important}
+.title{
+  position: fixed;
+  display: flex;
+  top: 0;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100vw;
+}
+.title  view{
+margin: 0 8rpx;
+font-size:34rpx;
+font-family:PingFangSC-Medium,PingFang SC;
+font-weight:500;
+
+}
+.goback {
+  margin-left: 14rpx;
+}
+.goback image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.top{
+  margin-top: 196rpx;
+  text-align: center;
+}
+.top .slefimg,.userphoto{
+  width: 181rpx;
+  height: 181rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.slefFirstname{
+  width: 181rpx;
+  height: 181rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  color: white;
+  font-weight: 500;
+  background: rgba(48,122,245,1);
+
+}
+.username{
+font-size: 36rpx;
+font-family: PingFang SC;
+font-weight: bold;
+color: #343434;
+}
+.together{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 51rpx 0 38rpx 0;
+}
+.together > view{
+  width: 207rpx;
+height: 141rpx;
+border-radius: 8rpx;
+text-align: center;
+padding-top: 33rpx;
+}
+.together > view text{
+font-size: 44rpx;
+font-family: PingFang SC;
+font-weight: bold;
+color: #FFFFFF;
+}
+.together > view view{
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+}
+.together .togeth_v1{
+background: linear-gradient(-70deg, #82BAFF, #5877FF);
+box-shadow: 0px 8rpx 16rpx 0px rgba(94, 128, 255, 0.4);
+}
+.together .togeth_v2{
+background: linear-gradient(135deg, #90F7EC, #32CCBC);
+box-shadow: 0px 8rpx 16rpx 0px rgba(47, 196, 180, 0.4);
+}
+.together .togeth_v3{
+background: linear-gradient(135deg, #FFF6B7, #F6416C);
+box-shadow: 0px 8rpx 16rpx 0px rgba(247, 80, 114, 0.4);
+}
+/* indicator */
+.indicator{
+  background: #F0F0F6;
+  width: 100vw;
+  padding: 20rpx 0;
+}
+.indicator .indicatorInfo{
+  background: white;
+  width: 100vw;
+  padding: 40rpx 0 40rpx 30rpx;
+}
+.indicator .indicatorInfo .indicatorInfo_titile image{
+   width: 30rpx;
+   height: 30rpx;
+}
+.indicator .indicatorInfo .indicatorInfo_titile text{
+  margin-left: 10rpx;
+font-size: 30rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.indicatorInfo_con{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+ 
+  flex-wrap: wrap;
+}
+.indicatorInfo_con .conditionList text{
+font-size: 26rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #606060;
+
+}
+.indicatorInfo_con .conditionList{
+  width: 218rpx;
+height: 64rpx;
+border: 1rpx solid #606060;
+border-radius: 8rpx;
+display: flex;
+ padding: 0 15rpx;
+align-items: center;
+justify-content: space-between;
+margin: 11rpx 20rpx 0  0;
+}
+.indicatorInfo_con .conditionList  image{
+  width: 10rpx;
+  height: 42rpx;
+}
+/* analyse */
+.analyse{
+  width: 100vw;
+  background:#F0F0F6; 
+}
+.analyse > view{
+  background: white;
+}
+.usertitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36rpx  0;
+}
+.usertitle >view text{
+  margin-left: 12rpx;
+font-size: 28rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.usertitle >view image{
+  width: 6rpx;
+  height: 28rpx;
+}
+.usertitle .isshow{
+  height: 44rpx;
+  width: 44rpx;
+}
+
+/*  */
+.userBody {
+ padding: 0 30rpx;
+}
+.userBody .userBody_v1 {
+  padding-bottom: 19rpx;
+}
+.userBody .userBody_v1 .userBody_v1Title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userBody .userBody_v1 .userBody_v1Title .userBody_v1Titletop{
+font-size: 30rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.userBody .userBody_v1 .userBody_v1Title .domian{
+  width: 540rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+font-size: 22rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #999999;
+}
+.userBody .userBody_v1 .userBody_progress{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx ;
+}
+.userBody .userBody_v1 .userBody_progress text{
+font-size: 30rpx;
+font-family: PingFang SC;
+font-weight: bold;
+color: #333333;
+}
+.userBody .userBody_v1 .userBody_progress .progress-box{
+  width: 540rpx;
+}
+.userBody .userBody_v1 .userBody_num {
+  margin-top: 13rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userBody .userBody_v1 .userBody_num >view{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 540rpx;
+}
+
+.userBody .userBody_v1 .userBody_num >view view{
+font-size: 22px;
+font-family: PingFang SC;
+font-weight: 500;
+color: #999999;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: -18rpx;
+}
+.userBody .userBody_v1 .userBody_num >view .kong{
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: white;
+}
+.userBody .userBody_v1 .userBody_num >view text{
+  margin-top: 20rpx;
+  font-size: 22rpx;
+}
+.userBody .userBody_v1 .userBody_num .userBody_numTarget{
+font-size: 22rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #666666;
+/* width: 140rpx; */
+height: 30rpx;
+
+}
+.userBody .userBody_v1 .userBody_num .userBody_numTarget .colorBlue{
+  color: #307af5
+}
+.userBody .userBody_v1 .userBody_num .userBody_numTarget1{
+  width: 114rpx;
+height: 30rpx;
+color: white;
+background: white;
+}
+.userBody_v2{
+  padding-top: 19rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+border-top: 1rpx solid #E5E5E5;
+}
+/*  */
+.fat{
+  margin:  20rpx 0;
+   padding: 0 30rpx;
+}
+/* muscle */
+.muscle .muscleCon{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #333333;
+justify-content: space-around;
+margin-bottom: 71rpx;
+padding-top: 28rpx;
+}
+ .muscle .muscleTitle image{
+height: 28rpx;
+width: 6rpx;
+}
+.muscle .muscleTitle {
+  display: flex;
+  align-items: center;
+  
+  /* padding: 38rpx 30rpx 38rpx 0; */
+}
+.muscle .muscleTitle  text{
+  margin-left: 13rpx;
+}
+/* .muscle body */
+.muscle .muscleBody1 {
+  width: 335rpx;
+  height: 335rpx;
+  position: relative;
+  padding: 20rpx 8rpx;
+  margin-top: 34rpx; 
+  }
+.muscle .muscleBody1 image{
+  width: 335rpx;
+  height: 335rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.muscle .muscleBody1 .muscleBodyCon view:nth-child(1){
+font-size: 22rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #343434;
+}
+.muscle .muscleBody1 .muscleBodyCon view:nth-child(2){
+font-size: 20rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #343434;
+text-align: center;
+}
+.muscle .muscleBody1 .muscleBodyCon view:nth-child(3){
+  width: 70rpx;
+height: 30rpx;
+background: #FFD466;
+border-radius: 8rpx;
+line-height: 30rpx;
+text-align: center;
+font-size: 20rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+}
+.muscle .muscleBody1 .muscleBodyCon1{
+  position: absolute;
+  top: 28rpx;
+  left: 8rpx;
+}
+.muscle .muscleBody1 .muscleBodyCon2{
+    position: absolute;
+  top: 28rpx;
+  right: 11rpx;
+}
+.muscle .muscleBody1 .muscleBodyCon3{
+    position: absolute;
+  bottom: 20rpx;
+  left: 8rpx;
+}
+.muscle .muscleBody1 .muscleBodyCon4{
+    position: absolute;
+  bottom: 20rpx;
+  right: 11rpx;
+}
+
+.muscle .muscleBody2 {
+  width: 335rpx;
+  height: 335rpx;
+  position: relative;
+
+}
+.muscle .muscleBody2 image{
+  width: 335rpx;
+  height: 335rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* .acticolor1{
+  height:50rpx;
+  width:600rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.acticolor1 .v1{
+  width: 80%;
+  height: 100%;
+  background: transparent;
+    animation: addwidth 10s ;
+}
+.acticolor1 .v2{
+  background: black;
+  height: 100%;
+  flex: 1;
+}
+@keyframes addwidth{
+				from{
+					width: 0;
+				}
+				to{
+					width: 100%;
+				}
+			} */

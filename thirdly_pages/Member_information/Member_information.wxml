@@ -1,0 +1,411 @@
+<view style="overflow:hidden;">
+  <my-component my-property='{{aa}}' />
+  <view class="line" style='margin-top:{{high}}rpx'></view>
+  <view class="information">
+
+    <!-- 添加会员档案 -->
+    <view class="add-dossier" bindtap="addVdossier" hidden="{{currentTab!==0||userTab==1}}">
+      <view>添加档案</view>
+    </view>
+    <view class="add-dossier" hidden="{{userTab!=1}}" bindtap="addInbody">
+     <view>添加体适能</view>
+    </view>
+    <!-- 添加教练档案 -->
+    <view class="add-dossier" bindtap="addCdossier" hidden="{{currentTab!==1}}">
+      <view>添加档案</view>
+    </view>
+    <!-- 头部信息 -->
+    <view class="mem-info" style="padding:0 48rpx">
+      <view class="flex-left">
+        <view class="left-top">
+          <text>{{userinfo.UI_Name}}({{userinfo.CO_Have}}节)</text>
+          <image src="{{userinfo.UI_Sex=='女'?'/icon/mrs.png':'/icon/mister.png'}}"></image>
+        </view>
+        <view class="left-mid">
+          {{userinfo.UI_Phone}}
+        </view>
+        <view class="left-bot" wx:if="{{pageid==0}}">
+          <text>销售:{{memname}}</text>
+        </view>
+
+        <view class="left-bot" wx:else>
+          <text>销售:{{memname}}</text>
+          <text>教练:{{coachname}}</text>
+          <text>频次:{{coachlength}}</text>
+
+        </view>
+      </view>
+      <view wx:if="{{userinfo.UI_Face}}">
+        <image src="{{userinfo.UI_Face}}" mode="aspectFill" class="flex-right" style="background:white"></image>
+      </view>
+      <view wx:else class="flex-right">{{userinfo.firstname}}</view>
+    </view>
+    <!-- 跟进申请 -->
+    <view class="state">
+      <ul class="state-con">
+
+
+        <li class="state-coninfo" data-idx='0' data-sta="{{item}}" bindtap="checkstate">
+          <view class="{{stateidx==0?'state-checkkong':'state-kong'}}"></view>
+          <view class="{{stateidx==0?'state-checkinfo':'state-info'}}">下次预约</view>
+        </li>
+        <li class="state-coninfo" data-idx='1' data-sta="{{item}}" bindtap="checkstate">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="state-coninfo">
+              <view class="{{stateidx==1?'state-checkkong':'state-kong'}}"></view>
+              <view class="{{stateidx==1?'state-checkinfo':'state-info'}}" bindtap="selectDate">
+                预约成功
+              </view>
+            </view>
+          </picker>
+        </li>
+
+        <li class="state-coninfo" data-idx='2' data-sta="{{item}}" bindtap="checkstate">
+          <view class="{{stateidx==2?'state-checkkong':'state-kong'}}"></view>
+          <view class="{{stateidx==2?'state-checkinfo':'state-info'}}">没有结论</view>
+        </li>
+        <li class="state-coninfo" data-idx='3' data-sta="{{item}}" bindtap="checkstate">
+          <view class="{{stateidx==3?'state-checkkong':'state-kong'}}"></view>
+          <view class="{{stateidx==3?'state-checkinfo':'state-info'}}">回访</view>
+        </li>
+      </ul>
+    </view>
+    <!-- 备注信息 -->
+    <view class="mes-info" style="padding:0 48rpx">
+      <textarea placeholder="{{subarea}}" cursor-spacing='5' bindinput="getarea" value="{{subareas}}">
+      </textarea>
+      <image src="/icon/complete.png" bindtap="toupinfo"></image>
+    </view>
+    <view class="navbar">
+      <scroll-view scroll-x style="white-space: nowrap ;width:100%;height:80rpx" scroll-with-animation="true">
+
+        <view wx:for="{{navbar}}" data-idx="{{index}}" style="display:inline-block" class="item {{currentTab==index ? 'active' : ''}}" wx:key="index" bindtap="navbarTap">
+          {{item}}
+          <view wx:if="{{currentTab==index}}" class="bot-line"></view>
+
+        </view>
+      </scroll-view>
+    </view>
+    <view class="card-info">
+
+      <!-- 会员档案 -->
+      <view hidden="{{currentTab!==0}}" class='purpose classinfoC'>
+        <view class="userTitle">
+          <view wx:for="{{userNav}}" class="userTitleClass">
+            <view bindtap="changeuserNav" data-idx="{{index}}" class="userNav{{userTab==index ? 'active' : ''}}"> {{item}}</view>
+          </view>
+        </view>
+        <!-- 教练添加的 -->
+        <view hidden="{{userTab!==0}}">
+          <view class="dossier-info" wx:for="{{dossier}}" wx:key="index">
+            <view class="dossier-date">{{item.Createdate}}</view>
+            <view class="dossier-data">
+              <view class="dossier-line">
+                <view></view>
+                <view></view>
+              </view>
+              <view class="dossier-detail">
+                <view class="dossier-name">
+                  <view>
+                    <image src="../../icon/name.png"></image>
+                    <view>{{item.CoachName}}</view>
+                  </view>
+                  <view bindtap="upcanvas" data-idx="{{index}}">
+                    <image src="../../icon/share.png"></image>
+                  </view>
+
+                </view>
+                <view class="dossier-every" bindtap="todossier" data-idx="{{index}}">
+                  <view class="dossier-f">
+                    <view class="dossier-one">
+                      <view></view>
+                      <view>体重:{{item.BodyWeight}}</view>
+                    </view>
+                    <view class="dossier-one">
+                      <view></view>
+                      <view>大腿:{{item.Thigh}}</view>
+                    </view>
+                    <view class="dossier-one">
+                      <view></view>
+                      <view>腰围:{{item.Waistline}}</view>
+                    </view>
+                    <view class="dossier-one">
+                      <view></view>
+                      <view>小腿:{{item.Calf}}</view>
+                    </view>
+                  </view>
+                  <view class="dossier-all">{{dossierall}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 体适能 -->
+        <view hidden="{{userTab!==1}}">
+          <!-- list -->
+          <view class="main" wx:if="{{inbodydataList.length}}">
+            <view class="mainList">
+              <view wx:for="{{inbodydataList}}">
+
+                <view class="mainListCon" bindtap="toInfo" data-info="{{item.testid}}">
+                  <image src="/icon/fitness/fitnessIcon.png" class="flex_left"></image>
+
+
+                  <view class="flex_right">
+                    <view class="right_v1">
+                      <view>{{item.testdate}}</view>
+                      <text>检测报告</text>
+                    </view>
+                    <view class="right_v2">
+                      <view>
+                        <text> {{item.body_age}}</text>岁</view>
+                      <view>身体年龄</view>
+                    </view>
+                    <view class="right_v3">
+                      <view class="right_v3Flex">
+                        <image src="{{item.num==1?'/icon/fitness/fitnessParallel.png':(item.num==2?'/icon/fitness/fitnessDown.png':'/icon/fitness/fitnessUp.png')}}"></image>
+                        <view>
+                          <text>{{item.score}}</text>分</view>
+                      </view>
+                      <view class="right_v3Text">健康评分</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:else class="nosport">
+            <view class="v0">
+              <image src="/icon/fitness/nosport.png"></image>
+            </view>
+            <view class="v1">还没有体适能检测数据</view>
+            <view class="v2">别再躺尸了</view>
+          </view>
+
+        </view>
+      </view>
+      <!-- 教练档案 -->
+      <view hidden="{{currentTab!==1}}" class='purpose classinfoC'>
+        <view class="dossier-infoC" wx:for="{{dossierC}}" wx:key="index">
+          <view class="dossier-date">{{item.Createdate}}</view>
+          <view class="dossier-dataC">
+            <view class="dossier-line">
+              <view></view>
+              <view></view>
+            </view>
+            <view class="dossier-detail">
+              <view class="dossier-name">
+                <view>
+                  <image src="../../icon/name.png"></image>
+                  <view>{{item.CoachName}}</view>
+                </view>
+              </view>
+              <view class="dossier-everyC" bindtap="todossierC" data-idx="{{index}}">
+                <view class="dossier-oneC" wx:for="{{item.data[0].data}}" wx:if="{{index<3}}">
+
+                  <view></view>
+                  <view>{{item.ActionName}}:{{item.ActionNum}}{{item.ActionUnit}}</view>
+                </view>
+                <view class="dossier-allC">{{dossierall}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 教练跟进 -->
+      <view hidden="{{currentTab!==2}}" class='purpose classinfo'>
+        <view class="follow-info" wx:for="{{coachaddlist}}" wx:key="index">
+          <view class="follow-con">
+            <view class="follow-top">
+              <text>{{item.AI_Name}}</text>
+              <text>{{item.AppointmentTime}}</text>
+            </view>
+            <!-- <view class="follow-bot">
+            {{item.CF_Result2}}
+          </view> -->
+            <view class="follow-bot">
+
+              <view>{{item.CF_Result2}}</view>
+              <view wx:if="{{item.CF_Content != 'undefined'}}" class="followContent">{{item.CF_Content}}</view>
+              <view wx:else></view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{One}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+
+      </view>
+      <!-- 备注信息 -->
+      <view hidden="{{currentTab!==3}}" class='purpose classinfo'>
+        <view class="follow-info" wx:if="{{info2.AD_Content}}">
+          <view class="follow-con">
+            <view class="follow-top">
+              <text>{{info2.AI_Name}}</text>
+              <text>{{info2.CreateDate}}</text>
+            </view>
+            <view wx:if="{{!info2.AD_Content}}" class="follow-bot">空</view>
+            <view wx:else class="follow-bot">
+              {{info2.AD_Content}}
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!info2.AD_Content}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+
+      </view>
+      <!-- 卡种信息 -->
+      <view hidden="{{currentTab!==4}}" class='purpose'>
+        <view class="purpose-info" wx:if="{{!Three}}">
+          <view class="cardName">{{listinfo.SC_Name}}</view>
+          <view class="cardInfo">
+            <view class="cardInfo-left">
+              <view>开卡时间：{{listinfo.UI_FirstDate}}</view>
+              <view>到期时间：{{listinfo.UI_LastDate}}</view>
+            </view>
+            <view class="cardInfo-rigth">
+              剩余{{listinfo.surplus}}
+            </view>
+          </view>
+        </view>
+        <!-- <view class="purpose-info">
+          <view class="purpose-con">
+            <view class="flex-left">
+              <image src="/icon/bgimg.png"></image>
+              <view class="up">
+                <view>{{listinfo.SC_Name}}</view>
+              </view>
+            </view>
+            <view class="flex-right">
+              <view>开卡时间：{{listinfo.UI_FirstDate}}</view>
+              <view>到期时间：{{listinfo.UI_LastDate}}</view>
+            </view>
+          </view>
+          <view class="purpose-bot">
+            剩余时间：{{listinfo.surplus}}
+          </view>
+        </view> -->
+
+
+        <view wx:if="{{Three}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+      </view>
+      <!-- 课程信息 -->
+      <view hidden="{{currentTab!==5}}" class='purpose classinfo'>
+        <block wx:for="{{listinfo1}}">
+          <view class="purpose-info">
+            <view class="cardName">{{item.CP_Name}}</view>
+            <view class="cardInfo">
+              <view class="cardInfo-left">
+                <view>开卡时间：{{item.CO_ActiveStart}}</view>
+                <view>到期时间：{{item.CO_ActiveEnd}}</view>
+              </view>
+              <view class="cardInfo-rigth">
+                剩余{{item.CO_Have}}节
+              </view>
+            </view>
+          </view>
+          <!-- <view class="purpose-info">
+            <view class="purpose-con">
+              <view class="flex-left">
+               <image src="/icon/bgimg.png"></image> 
+               <view class="up">
+                  <view>{{item.CP_Name}}</view>
+                  <view>{{item.HaveDays}}天</view>
+                </view>
+              </view>
+              <view class="flex-right">
+                <view>开卡时间：{{item.CO_ActiveStart}}</view>
+                <view>到期时间：{{item.CO_ActiveEnd}}</view>
+              </view>
+            </view>
+            <view class="purpose-bot">
+              剩余次数：{{item.CO_Have}}节
+            </view>
+          </view>  -->
+        </block>
+        <view wx:if="{{Four}}" class="noClass">
+          <image src="/icon/Noorder.png" class="Noorder"></image>
+          <view class="NoorderC">暂无信息</view>
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- inbodyStrat -->
+  <view class="inbodyStartmodel" wx:if="{{inbodyStartShow}}">
+      <view class="inbodyStartcon">
+          <view>
+            <text>会员姓名</text>
+            <input value="{{userinfo.UI_Name}}" placeholder="{{userinfo.UI_Name}}" disabled="true"></input>
+          </view>
+          <view>
+            <text>会员性别</text>
+            <input value="{{userinfo.UI_Sex}}" placeholder="{{userinfo.UI_Sex}}" disabled="true"></input>
+          </view>
+          <view>
+            <text>会员手机号</text>
+            <input value="{{userinfo.UI_Phone}}" placeholder="{{userinfo.UI_Phone}}" disabled="true"></input>
+          </view>
+          <view>
+            <text>会员身高</text>
+            <input placeholder="请输入会员身高"></input>
+          </view>
+          <view>
+            <text>会员出生年份</text>
+            <input placeholder="请输入会员出生年份"></input>
+          </view>
+          <view>
+            <text>测试机器编号</text>
+            <input placeholder="请输入测试机器编号"></input>
+          </view>
+          <button bindtap="signInInbody">注册InBody并继续</button>
+      </view>
+  </view>
+   
+<!-- inbodyEnf -->
+
+<!-- canvas -->
+<canvas wx:if="{{showcanvas}}" canvas-id='share' width="{{screenWidth*2}}px" height="{{screenHeight*2}}px" style='width:{{screenWidth}}px;height:{{screenWidth/375*592}}px;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)' hidden='{{canvasHidden}}'>
+</canvas>
+<!-- 身高的设置 -->
+
+
+<view class="hightModel" wx:if="{{inbodyModelShow}}">
+    <view class="hightCon">
+      <view class="hightTitle">设置身高</view>
+      <view class="hightWarn">请设置身高后继续</view>
+      <view class="hightPicker">
+           <picker-view indicator-style="height: 50rpx;" style="width: 100%; height: 300rpx;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{userhight}}" style="line-height:50rpx;text-align:end;color:#4D75FA;font-size:32rpx">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view style="line-height:50rpx;  text-indent: 10rpx;color:#4D75FA;font-size:24rpx">厘米</view>
+    </picker-view-column>
+  </picker-view>
+      </view> 
+      <view class="hightBot">
+          <text bindtap="closeModel">取消</text>
+          <text bindtap="updateUserHight">确定</text>
+      </view>
+    </view>
+    
+</view>
+<modal hidden="{{hiddenmodalput}}" title="请输入机器编号" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+
+   <input type='text'placeholder="请输入机器编号" bindinput="getNumber" auto-focus/>  
+
+</modal> 

@@ -1,0 +1,32 @@
+.all{
+  margin: 30.5% 9%;
+  
+}
+.con{
+  height: 100rpx;
+  display: flex;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 25rpx;
+  flex-shrink: 0.5;
+  margin-top: 30rpx;
+}
+.inp{
+  font-size: 30rpx;
+}
+.con text{
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.con input{
+  width: 300rpx;
+  margin-left: 20rpx;
+}
+.all button{
+  margin-top: 70%;
+ background:rgba(48,122,245,1);
+  color: white;
+}

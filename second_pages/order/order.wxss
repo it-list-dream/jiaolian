@@ -1,0 +1,402 @@
+
+.purpose-search{
+
+position: relative;
+  display: flex;
+  justify-content: space-between;
+    padding: 0 48rpx;
+}
+ .purpose-search .search{
+
+  display: flex;
+  align-items: center;
+  width:100%;
+height:62rpx;
+background:rgba(230,234,241,0.5);
+border-radius:12px;
+
+}
+
+ .purpose-search .search .sousuo{
+
+  height: 32rpx;
+  width: 32rpx;
+  margin-left: 32rpx;
+}
+
+ .purpose-search .search input{
+
+  margin-left: 10rpx;
+  width:400rpx;
+  font-size:28rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(118,129,150,0.5);
+}
+.purpose-search .search .clear{
+  width:160rpx;
+  height:50rpx;
+ margin-left: auto;
+}
+.purpose-search .search .clear image{
+    width:32rpx;
+  height:32rpx;
+  margin-top:9rpx;
+   margin-left:110rpx;
+}
+ .purpose-search .chose{
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.purpose-search .chose image{
+
+  height: 8rpx;
+  width: 14rpx;
+  margin-right: auto;
+  margin-left: 12rpx;
+}
+
+ .purpose-search .chose text{
+  font-size:26rpx;
+
+
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(102,102,102,1);
+}
+
+.purpose .purpose-info{
+  margin-top: 32rpx;
+  padding: 0 50rpx;
+}
+.purpose .purpose-info .info-flex{
+
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+  border-bottom: 1px solid rgba(230,234,241,1);
+}
+.purpose .purpose-info .info-flex .user{
+  margin-left: 48rpx;
+}
+
+ .purpose-info .info-flex .user  .user-info{
+  display: flex;
+   flex-wrap: wrap ;
+ justify-content: space-between;
+}
+ .purpose-info .info-flex .user .user-info  .userCard {
+text-align: center;
+   width:37px;
+height:20px;
+font-size:14px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(118,129,150,0.7);
+line-height:20px;}
+
+.purpose .purpose-info .info-flex .user .user-info text:nth-child(1){
+   font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(13,14,21,1);
+}
+.purpose .purpose-info .info-flex .user .user-info text:nth-child(2){
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(48,122,245,1);
+}
+.purpose .purpose-info .info-flex .user > view:nth-child(2){
+  margin-top: 2rpx;
+  font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(118,129,150,1);
+}
+
+.purpose .purpose-info .info-flex .phone {
+    margin-left: auto;
+
+}
+.purpose .purpose-info .info-flex .phone .order{
+  width:140rpx;
+height:64rpx;
+background:rgba(48,122,245,1);
+border-radius:10rpx;
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.purpose .purpose-info .info-flex .phone .no-order{
+    width:140rpx;
+height:64rpx;
+background:rgba(118,129,150,0.3);
+border-radius:10rpx;
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(242,244,248,1);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.purpose .purpose-info .head-img{
+  width:88rpx;
+height:88rpx;
+border-radius: 50%;
+}
+
+.purpose .purpose-info  .Nofind {
+height: 500rpx;
+width: 654rpx;
+text-align: center;
+line-height: 500rpx;
+font-size: 36rpx;
+font-family: PingFang-SC-Medium,PingFang-SC;
+font-weight: 500;
+color: rgba(153,153,153,1);
+}
+/* 意向会员筛选 */
+/* 隐藏 */
+.model{
+  position: absolute;
+  top: 600rpx;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.model-info{
+  position: absolute;
+  top:296rpx;
+  z-index:1000;
+  background:white;
+  width:100%;
+height:825rpx;
+background:rgba(255,255,255,1);
+border-radius:0 0 32rpx 32rpx;
+padding: 32rpx 48rpx 0 48rpx;
+}
+.model-info .blubg{
+  display: inline-block;
+  width:10px;
+height:10px;
+border-radius: 50%;
+background-color: #4D75FA;
+border:1px solid #4D75FA;
+}
+.model-info .grabg{
+   display: inline-block;
+  width:10px;
+height:10px;
+border-radius: 50%;
+border:1px solid rgba(153,153,153,1);
+}
+.model-info .blu{
+ font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(48,122,245,1);
+margin-left: 20rpx;
+}
+.model-info .gra{
+ font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(51,51,51,1);
+margin-left: 20rpx;
+}
+.model-info .chose-num input{
+  width:64px;
+height:32px;
+background:rgba(230,234,241,0.7);
+border-radius:6px;
+text-align: center;
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(118,129,150,0.7);
+}
+.model-info .yet-follow{
+  display: flex;
+  align-items: center;
+}
+.model-info .yet-follow .chose-num{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.model-info .yet-follow .chose-num .te1{
+  margin: 0 20rpx;
+}
+.model-info .yet-follow .chose-num .te2{
+  font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(51,51,51,1);
+margin-left: 32rpx;
+}
+.model-info .kong-line{
+  width:100%;
+height:2rpx;
+background:rgba(230,234,241,1);
+margin: 32rpx 0 18rpx 0;
+}
+.model-info .kong-line2{
+  width:100%;
+height:2rpx;
+background:rgba(230,234,241,1);
+margin-top: 18rpx;
+}
+.model-info .inquire,.model-info .inquire1{
+  width:100%;
+height:88rpx;
+background:rgba(48,122,245,1);
+border-radius:8rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size:34rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(255,255,255,1);
+margin-top: 206rpx;
+}
+.model-info .inquire1{
+ 
+margin-top: 106rpx;
+}
+/* 打电话模态框 */
+.modal2{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+.phonemodel{
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  width:80%;
+height:450rpx;
+background:rgba(255,255,255,1);
+border-radius:16rpx;
+z-index: 1001;
+}
+
+.phonemodel >view:nth-child(1){
+  height: 54rpx;
+  width: 54rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:auto; 
+}
+.phonemodel image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.phonemodel .phonemodelinfo{
+  padding: 0 80rpx;
+}
+.phonemodel .phonemodelinfo view{
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2rpx solid rgba(230,234,241,1);
+}
+.phonemodel > view:nth-child(3){
+  width:196rpx;
+height:64rpx;
+background:rgba(48,122,245,1);
+border-radius:4rpx;
+border:2rpx solid rgba(48,122,245,1);
+margin: 40rpx auto 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size:32rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(255,255,255,1);
+}
+  .notimage{
+  width:88rpx;
+height:88rpx;
+background:rgba(65,128,255,1);
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+font-size:44rpx;
+font-family:PingFang-SC-Medium,PingFang-SC;
+font-weight:500;
+color:rgba(255,255,255,1);
+ }
+.model{
+  
+  position: absolute;
+  top: 600rpx;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index:0;
+}
+ .chose-num input{
+  width:64px;
+height:32px;
+background:rgba(230,234,241,0.7);
+border-radius:6px;
+text-align: center;
+font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(118,129,150,0.7);
+}
+.chose-num{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+ .chose-num .te1{
+  margin: 0 20rpx;
+}
+ .chose-num .te2{
+  font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(51,51,51,1);
+margin-left: 32rpx;
+}
+.botEnd{
+  text-align: center;
+  margin: 30rpx 0 ;
+    font-size:28rpx;
+font-family:PingFangSC-Regular,PingFangSC;
+font-weight:400;
+color:rgba(51,51,51,1);
+}
+/* 返回顶部 */
+.goTop{
+  height: 92rpx;
+  width: 92rpx;
+  position: fixed;
+  bottom: 200rpx;
+  right: 28rpx;
+  border-radius: 50%;
+}

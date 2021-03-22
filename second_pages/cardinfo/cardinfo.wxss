@@ -1,0 +1,314 @@
+.line {
+  height: 2rpx;
+  width: 100%;
+  background-color: rgba(244, 244, 244, 1);
+  margin-bottom: 28rpx;
+}
+.notimage {
+  width: 88rpx;
+  height: 88rpx;
+  background: rgba(65, 128, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 44rpx;
+  font-family: PingFang-SC-Medium, PingFang-SC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+.con {
+  padding: 0 60rpx 0 50rpx;
+}
+
+.con .info-flex image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+
+.con .info-flex {
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+  border-bottom: 2rpx solid rgba(230, 234, 241, 1);
+}
+
+.con .info-flex .bot {
+  width: 140rpx;
+  height: 64rpx;
+  background: rgba(118, 129, 150, 0.3);
+  border-radius: 10rpx;
+  margin-left: auto;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(242, 244, 248, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.con .info-flex .user {
+  margin-left: 48rpx;
+}
+
+.con .info-flex .user .user-info text:nth-child(1) {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(13, 14, 21, 1);
+}
+
+.con .info-flex .user .user-info text:nth-child(2) {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(48, 122, 245, 1);
+}
+
+.con .info-flex .user .clacon {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(118, 129, 150, 1);
+}
+
+/* 底部开始 */
+
+.coachtime {
+  padding: 0 74rpx;
+  margin-top: 50rpx;
+}
+
+.coachtime .time-header {
+  display: flex;
+  font-size: 28rpx;
+  font-weight: 400;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+
+.coachtime .time-header .t-gray {
+  display: flex;
+  align-items: center;
+}
+
+.coachtime .time-header .t-gray .bg-gray {
+  width: 20rpx;
+  height: 20rpx;
+  background: rgba(153, 153, 153, 1);
+  border-radius: 4rpx;
+}
+
+.coachtime .time-header .t-gray view:nth-child(2) {
+  color: rgba(153, 153, 153, 1);
+  margin-left: 10rpx;
+}
+
+.coachtime .time-header .t-orange {
+  margin-left: 48rpx;
+  display: flex;
+  align-items: center;
+}
+
+.coachtime .time-header .t-orange .bg-orange {
+  width: 20rpx;
+  height: 20rpx;
+  background: #fe8473;
+  border-radius: 4rpx;
+}
+
+.coachtime .time-header .t-orange view:nth-child(2) {
+  color: #fe8473;
+  margin-left: 10rpx;
+}
+
+.coachtime .time-header .t-blue {
+  margin-left: 48rpx;
+  display: flex;
+  align-items: center;
+}
+
+.coachtime .time-header .t-blue .bg-blue {
+  width: 20rpx;
+  height: 20rpx;
+  background: rgba(48, 122, 245, 1);
+  border-radius: 4rpx;
+}
+
+.coachtime .time-header .t-blue view:nth-child(2) {
+  color: rgba(48, 122, 245, 1);
+  margin-left: 10rpx;
+}
+
+/* 预约时间 */
+
+.mydate {
+  height: 100rpx;
+}
+
+.mydate .everyday {
+  display: inline-block;
+  width: 100rpx;
+  height: 100rpx;
+  background: rgba(242, 244, 248, 1);
+  border-radius: 4rpx;
+  margin-right: 6rpx;
+}
+
+.mydate .everyday.active {
+  background: rgba(48, 122, 245, 1);
+}
+
+.mydate .everyday.active view {
+  color: white;
+}
+
+.mydate .everyday view {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  text-align: center;
+}
+
+.mydate .everyday view:nth-child(1) {
+  margin-top: 18rpx;
+}
+
+.mydate .rili {
+  float: right;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  line-height: 140rpx;
+}
+
+.bg1 {
+  background: rgba(48, 122, 245, 1);
+}
+
+.bg2 {
+  background: rgba(242, 244, 248, 1);
+}
+
+.mydate .rili image {
+  width: 76rpx;
+  height: 72rpx;
+  border-radius: 4rpx;
+}
+
+/* 时间选择 */
+
+.time ul {
+  display: flex;
+  margin-top: 45rpx;
+  flex-wrap: wrap;
+}
+
+.time ul li {
+  margin: 15rpx 0;
+  width: 33.3%;
+}
+
+.time ul li .mycol {
+  margin: 0 auto;
+  width: 150rpx;
+  height: 54rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #fe8473;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #fe8473;
+  line-height: 54rpx;
+}
+
+.time ul li .keyuyue {
+  margin: 0 auto;
+  width: 150rpx;
+  height: 54rpx;
+  border-radius: 8rpx;
+  border: 1px solid #999;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #999;
+  line-height: 54rpx;
+}
+
+.time ul li .yiyuyue {
+  margin: 0 auto;
+  width: 150rpx;
+  height: 54rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  line-height: 54rpx;
+  border: 1px solid rgba(48, 122, 245, 1);
+  color: rgba(48, 122, 245, 1);
+}
+
+.time {
+  padding-bottom: 192rpx;
+}
+
+.time ul li .gco.active {
+  background: rgba(48, 122, 245, 1);
+  color: white;
+}
+
+.time .phone image {
+  float: right;
+  margin-right: 10rpx;
+  width: 176rpx;
+  height: 176rpx;
+  position: fixed;
+  right: 8%;
+  bottom: 18.4%;
+}
+
+.bot-but {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 192rpx;
+  background-color: #fff;
+}
+
+.bot-but button {
+  position: absolute;
+  /* left: 8%; */
+  top: 20rpx;
+  width: 84%;
+  margin: 0 8%;
+  height: 44px;
+  background: rgba(48, 122, 245, 1);
+  border-radius: 4px;
+  font-size: 17px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.time ul .gco {
+  color: rgba(48, 122, 245, 1);
+  border: 1px solid rgba(48, 122, 245, 1);
+}
+
+.c1 {
+  color: white;
+  background: rgba(48, 122, 245, 1);
+}
+
+.c2 {
+  color: rgba(153, 153, 153, 1);
+  background: white;
+  border: none;
+}

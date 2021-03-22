@@ -1,0 +1,64 @@
+<view style="overflow:hidden">
+	<my-component my-property='{{aa}}' />
+   <cover-view class="back" style="top:{{menuTop}}px" bindtap="goback"> <cover-image src="/icon/goback.png" ></cover-image></cover-view>
+ 
+	<!-- <view class="line" style='margin-top:{{high}}rpx'></view> -->
+	<view class="all" style="padding-bottom :{{status?'158rpx':'108rpx'}}">
+		<view class="base" wx:for="{{baseData.data}}" wx:for-index="idx">
+
+			<view class="baseName">
+				<image src="../../icon/basename.png"> </image>
+				<text>{{item.TrainingName}}</text>
+			</view>
+			<view class='baseStyle' wx:if="{{idx%2==0}}">
+				<view wx:for="{{item.data}}" wx:key="index" class="{{index==0?'baseOne1 baseOne':index==1?'baseOne2 baseOne':'baseOne3 baseOne'}}" bindtap="inputin" data-idx="{{idx}}" data-ide="{{index}}">
+					<view style="background:{{status?idx==Dfocusindex?index==focusindex?'rgba(255,198,81,1)':'rgba(200,206,217,1)':'rgba(200,206,217,1)':'rgba(200,206,217,1)'}}"></view>
+					<view>{{item.ActionName}}:</view>
+					<input wx:if="{{status}}" type="text" placeholder="0{{item.ActionUnit}}" placeholder-style="color:'rgba(118,129,150,0.7)'" bindinput="basedata" data-idx="{{idx}}" data-ide="{{index}}" value="{{item.ActionNum}}" bindblur="blurdata" bindfocus="focuedata" placeholder-style="color:#768196" style="color:#666666"></input>
+					<view wx:else>{{item.ActionNum}}{{item.ActionUnit}}</view>
+				</view>
+			</view>
+			<view class='baseStyle' wx:else>
+
+				<view wx:for="{{item.data}}" wx:for-index="index1" class="{{index1==0?'baseOne3 baseOne':index1==1?'baseOne2 baseOne':'baseOne1 baseOne'}}" bindtap="inputin" data-idx="{{idx}}" data-ide="{{index1}}">
+					<view style="background:{{status?idx==Dfocusindex?index1==focusindex?'rgba(255,198,81,1)':'rgba(200,206,217,1)':'rgba(200,206,217,1)':'rgba(200,206,217,1)'}}"></view>
+					<view>{{item.ActionName}}:</view>
+					<input wx:if="{{status}}" type="text" placeholder="0{{item.ActionUnit}}" bindinput="basedata" data-idx="{{idx}}" data-ide="{{index1}}" value="{{item.ActionNum}}" bindblur="blurdata" bindfocus="focuedata" placeholder-style="color:'rgba(118,129,150,0.7)'" placeholder-style="color:#768196" style="color:#666666"></input>
+					<view wx:else>{{item.ActionNum}}{{item.ActionUnit}}</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="slide">
+			<view class="baseName">
+				<image src="../../icon/body.png"> </image>
+				<text>运动表现评估：（必填项）</text>
+			</view>
+			<view class="slideStyle">
+				<view class="slideOne">
+					<view>心肺耐力:</view>
+					<view>
+						<view wx:for="{{list}}" wx:key="index" data-idx="{{index}}" bindtap="listIndex" style="opacity:{{index==listindex?'1':'0.4'}}">{{item}}</view>
+					</view>
+				</view>
+				<view class="slideOne">
+					<view>肌耐力:</view>
+					<view>
+						<view wx:for="{{list}}" wx:key="index" data-idx="{{index}}" bindtap="listIndex1" style="opacity:{{index==listindex1?'1':'0.4'}}">{{item}}</view>
+					</view>
+				</view>
+				<view class="slideOne">
+					<view>协调能力:</view>
+					<view>
+						<view wx:for="{{list}}" wx:key="index" data-idx="{{index}}" bindtap="listIndex2" style="opacity:{{index==listindex2?'1':'0.4'}}">{{item}}</view>
+					</view>
+				</view>
+
+			</view>
+		</view>
+		<view class="button" wx:if="{{status}}" bindtap="addCoach">
+			<view>确认添加</view>
+		</view>
+	</view>
+	<view class="toast" hidden="{{!showToast}}">{{msg}}</view>
+</view>

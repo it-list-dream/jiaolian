@@ -1,0 +1,60 @@
+/*
+*滑动标尺样式
+*/
+page {
+    /*background-color: blue;*/
+}
+
+.box {
+    width: 90%;
+    height: 140rpx;
+    margin:10rpx auto 60rpx;
+    overflow: hidden;
+    position: relative;
+}
+.cursor {
+    position: absolute;
+    top: 40rpx;
+    left: 50%;
+    width: 6rpx;
+    height: 140rpx;
+    background:rgba(255,198,81,1); 
+    transform: translate(-50%,0);
+    z-index: 1
+}
+.wrapper {
+    width: 100%;
+    margin-top: 0rpx;
+}
+.scroller{
+    /*width: 1500rpx;*/
+    padding: 40rpx 47% 40rpx 50%;
+    /*transition: all 1s;*/
+}
+.scroller>text{
+    font-size: 20rpx;
+    color: rgba(118,129,150,1);
+    display: inline-block;
+    width: 9px;
+    border-left: 1px solid rgba(118,129,150,1);
+    border-bottom: 1px solid rgba(118,129,150,1);
+    height: 20rpx;
+    vertical-align: bottom;
+    position: relative;
+}
+.scroller>text:last-of-type{
+    border-bottom: 0rpx;
+}
+.scroller .scale_txt{
+    font-size: 24rpx;
+    font-style: normal;
+    position: absolute;
+    top: -30rpx;
+    left: -8px;
+}
+.scroller .middle{
+    height: 32rpx;
+}
+.scroller .big{
+    height: 60rpx;
+}

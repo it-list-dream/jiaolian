@@ -1,0 +1,81 @@
+<my-component my-property='{{aa}}' />
+<view class="line" style='margin-top:{{high}}rpx'></view>
+<view style="position:{{date?'fixed':''}}">
+  <view class="container">
+    <view class='mydate'>
+      <block wx:for="{{dayList}}" wx:key="{{index}}">
+        <view class="everyday {{showId==index ? 'active' : ''}}" bindtap='changebg' data-day='{{item.month}}-{{item.day}}' data-year='{{item.year}}' data-index="{{index}}">
+          <view>{{item.week}}</view>
+          <view>{{item.month}}.{{item.day}}</view>
+        </view>
+      </block>
+      <view class="rili {{date ? 'bg1' : 'bg2' }}" bindtap='todate'>
+        <image src="/icon/rili.png" wx:if="{{date}}"></image>
+        <image src="/icon/rili2.png" wx:else="{{date}}"></image>
+      </view>
+    </view>
+
+    <view class="mod" wx:if="{{date}}" style="margin-top:{{high1}}rpx;" bindtap="closmdel">
+      <calendar calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" binddayClick="dayClick"  catchtap='cl'  />
+
+    </view>
+  </view>
+  <!-- con -->
+  <view class="con">
+    <block wx:for="{{listinfo1}}">
+      <view class="info-flex">
+        <!-- <image src="{{item.img ?item.img:'/icon/portrait.png'}}" class="head-img"></image> -->
+         <image wx:if="{{item.Face}}" src="{{item.Face}}"    mode="aspectFill"    class="head-img"></image>
+            <view wx:else class="notimage">{{item.firstname}}</view>
+        <view class="user" bindtap="topurposeinfomation">
+          <view class="user-info">
+            <text>{{item.UI_Name}} </text>
+            <text> ({{item.CS_Spenddate}})</text>
+          </view>
+          <view class="clacon">{{item.CP_Name}}</view>
+        </view>
+        <view   wx:if='{{item.CS_State==6||item.CS_State==7}}' class="bot" bindtap="no_order" data-index="{{index}}" data-s="{{item.CS_Spenddate}}" data-e="{{item.CS_SpenddateEnd}}" data-id="{{item.CS_ID}}">
+          取消预约
+        </view>
+        <view   wx:else class="bot" bindtap="no_order1" >
+          已结束
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- coachtime -->
+  <view class="coachtime">
+    <view class="time-header">
+      <view class="t-gray">
+        <view class="bg-gray"></view>
+        <view>已预约</view>
+      </view>
+      <view class="t-orange">
+        <view class="bg-orange"></view>
+        <view>休息时间</view>
+      </view>
+      <view class="t-blue">
+        <view class="bg-blue"></view>
+        <view>工作时间</view>
+      </view>
+    </view>
+  </view>
+ 
+  <view class='time'>
+    <ul>
+      <block wx:for="{{dataall}}" wx:key="{{index}}">
+        <li>{{index}}
+          <view class="{{item.type==0 ? 'keyuyue':(item.type==1?'yiyuyue':'mycol') }}" style="color:{{item.writecolor}};border-color:{{item.bordercolor}};background-color:{{item.bgcolor}}" catchtap="show{{item.type==0 ? 'ch':(item.type==2?'ch2':'ch1')}}" data-num="{{index}}"
+            data-s="{{item.starttime}}" data-e="{{item.endtime}}">{{item.starttime}}</view>
+        </li>
+      </block>
+    </ul>
+
+    <view class='phone'>
+    </view>
+
+    <view class="bot-but">
+      <button bindtap='succ'>{{dothing}}</button>
+    </view>
+  </view>
+</view>

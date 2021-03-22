@@ -1,0 +1,190 @@
+<view style="position:{{modelshow || phonemodel?'fixed':''}}" class="page">
+<my-component my-property='{{aa}}'  />
+<!-- 意向打电话模态框 -->
+<view class="modal2" bindtap="closemo2" wx:if="{{phonemodel}}"></view>
+<view wx:if="{{phonemodel}}">
+  <view >
+  <!-- <view wx:if="{{currentTab==0}}"> -->
+    <view class="phonemodel">
+      <view>
+        <image src="/icon/shanchu.png" bindtap="clo"></image>
+      </view>
+      <view class="phonemodelinfo">
+        <view bindtap="call">呼叫</view>
+        <view bindtap="copy">复制</view>
+      </view>
+    <view class="picker" bindtap="orderUser">
+      添加到通讯录
+    </view>
+  </view>
+  </view>
+
+</view>
+<!-- 头部定位 -->
+  
+<view class="line" style='margin-top:{{high}}rpx'></view>
+<view class="member">
+  <view class="model" wx:if="{{modelshow}}" bindtap="closemo"></view>
+  <view class="navbar" style='position:fixed;top:{{commonHeadHeight.titleHeight}}rpx;left:35%; z-index:10;'>
+    <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">
+      {{item}}
+      <view wx:if="{{currentTab==index}}" class="bot-line"></view>
+
+    </view>
+
+  </view>
+</view>
+<!-- 意向会员 -->
+<view class="purpose-search">
+  <view class="search"  style="display:{{currentTab==1 ? 'none' : 'flex'}}">
+    <image src="/icon/search.png" class="sousuo"></image>
+    <input type="text" placeholder="请输入会员姓名、手机号" bindinput="watchPassWord" value='{{inputValue}}' catchtap="clickWord"></input> 
+    <view class="clear" catchtap="clearValue" wx:if="{{clear==0}}">
+      <image src="/icon/clear.png"></image>
+    </view>
+  </view>
+  <view class="search" style="display:{{currentTab==0 ?' none' : 'flex'}}">
+    <image src="/icon/search.png" class="sousuo"></image>
+    <input type="text" placeholder="请输入会员姓名、手机号" bindinput="watchPassWord" value='{{inputValue1}}' catchtap="clickWord"></input>
+    
+    <view class="clear" catchtap="clearValue" wx:if="{{clear1==0}}">
+      <image src="/icon/clear.png"></image>
+    </view>
+  </view>
+  <view class="chose" bindtap="purpose_chose">
+    <text>筛选</text>
+    <image src="/icon/down_arrow.png"></image>
+  </view>
+</view>
+
+
+<!-- 无课会员筛选 -->
+<view wx:if="{{currentTab==0}}">
+  <view class="model-info" wx:if="{{modelshow}}">
+  <view class="not-follow">
+      <view bindtap="chose_followOne" data-inx='bg0'>
+        <text class="{{bgOne=='bg0'?'blubg':'grabg'}}"></text>
+        <text class="{{bgOne=='bg0'?'blu':'gra'}}">全部</text>
+      </view>
+      </view>
+       <view class="kong-line"></view>
+    
+    <view class="not-follow">
+      <view bindtap="chose_followOne" data-inx='bg1'>
+        <text class="{{bgOne=='bg1'?'blubg':'grabg'}}"></text>
+        <text class="{{bgOne=='bg1'?'blu':'gra'}}">从未跟进</text>
+      </view>
+      </view>
+       <view class="kong-line"></view>
+    <view class="yet-follow">
+      <view bindtap="chose_followOne" data-inx='bg2'>
+        <text class="{{bgOne=='bg2'?'blubg':'grabg'}}"></text>
+        <text class="{{bgOne=='bg2'?'blu':'gra'}}">跟进次数</text>
+      </view>
+      <view class="chose-num">
+        <input type="number" value="{{ bgOne=='bg2'?inputValueNumS:'0' }}" bindinput="watchNumS" bindfocus="tapNumS"></input>
+        <text class="te1">-</text>
+       <input type="number" value="{{ bgOne=='bg2'?inputValueNumE:'0' }}" bindinput="watchNumE" bindfocus="tapNumS"></input>
+        <text class="te2">次</text>
+      </view>
+    </view>
+    <view class="kong-line2"></view>
+    <view class="inquire" bindtap="inquire">查询</view>
+  </view>
+</view>
+<!-- 办卡会员筛选 -->
+<view wx:if="{{currentTab==1}}">
+<view class="model-info" wx:if="{{modelshow}}">
+
+<view class="not-follow">
+      <view bindtap="chose_follow" data-inx='bg0'>
+        <text class="{{bg=='bg0'?'blubg':'grabg'}}"></text>
+        <text class="{{bg=='bg0'?'blu':'gra'}}">全部</text>
+      </view>
+    </view>
+    <view class="kong-line"></view>
+    <view class="not-follow">
+      <view bindtap="chose_follow" data-inx='bg1'>
+        <text class="{{bg=='bg1'?'blubg':'grabg'}}"></text>
+        <text class="{{bg=='bg1'?'blu':'gra'}}">在场会员</text>
+      </view>
+    </view>
+    <view class="kong-line"></view>
+
+    <view class="not-follow">
+      <view bindtap="chose_follow" data-inx='bg2'>
+        <text class="{{bg=='bg2'?'blubg':'grabg'}}"></text>
+        <text class="{{bg=='bg2'?'blu':'gra'}}">到期会员</text>
+      </view>
+    </view>
+    <view class="kong-line"></view>
+
+    <view class="yet-follow">
+      <view bindtap="chose_follow" data-inx='bg3'>
+        <text class="{{bg=='bg3'?'blubg':'grabg'}}"></text>
+        <text class="{{bg=='bg3'?'blu':'gra'}}">剩余课数</text>
+      </view>
+       <view class="chose-num">
+        <input type="number" value="{{ bg=='bg3'?inputValueClassS:'0' }}" bindinput="watchClassS"  bindfocus="tapClassS"></input>
+        <text class="te2">次</text>
+      </view>
+    </view>
+    <view class="kong-line2"></view>
+    <view class="inquire1" bindtap="inquire1">查询</view>
+  </view>
+</view>
+
+
+  <!--无课会员 -->
+
+<view hidden="{{currentTab!==0}}" class='purpose'>
+  <view class="purpose-info">
+    <block wx:for="{{listinfo}}">
+      <view class="info-flex">
+         <image wx:if="{{item.UI_Face}}"  mode="aspectFill" src="{{item.UI_Face}}" class="head-img"></image>
+        <view  class="notimage"  wx:else >{{item.firstname}}</view>
+        <view class="user" bindtap="toinfomation"  data-info="{{item}}">
+
+          <view class="user-info">
+            <text>{{item.UI_Name}} </text>
+          </view>
+          <view>{{item.UI_Phone}}<text style="margin-left:16rpx">（{{item.UI_No}}）</text> </view>
+        </view>
+        <view class="phone" data-phone="{{item.UI_Phone}}" bindtap="callphone" data-name="{{item.UI_Name}}">
+          <image src="/icon/phone.png"></image>
+        </view>
+      </view>
+    </block>
+  <view wx:if="{{botEnd}}" class="botEnd">抱歉，没有更多会员了!</view>
+ <view class="Nofind" wx:if="{{nofind}}">没有找到联系人</view>
+  </view>
+</view>
+
+<!-- 买课会员 -->
+
+<view hidden="{{currentTab!==1}}" class='card'>
+
+  <view class="purpose-info">
+    <block wx:for="{{listinfo2}}">
+      <view class="info-flex">
+        <image wx:if="{{item.UI_Face}}" src="{{item.UI_Face}}"  mode="aspectFill" class="head-img"></image>
+        <view  wx:else class="notimage"  >{{item.firstname}}</view>
+        <view class="user" bindtap="toinfomation" data-info="{{item}}">
+          <view class="user-info">
+
+              <view>{{item.UI_Name}} </view>
+              <view> ({{item.CO_Have}}节)</view>
+            </view>
+          <view>{{item.UI_Phone}}<text style="margin-left:16rpx">（{{item.UI_No}}）</text> </view>
+        </view>
+        <view class="phone" data-phone="{{item.UI_Phone}}" bindtap="callphone" data-name="{{item.UI_Name}}">
+          <image src="/icon/phone.png"></image>
+        </view>
+      </view>
+    </block>
+  <view wx:if="{{botEnd1}}" class="botEnd">抱歉，没有更多会员了!</view>
+  <view class="Nofind" wx:if="{{nofind1}}">没有找到联系人</view>
+  </view>
+    <image src="../../icon/tops.png" class='goTop' hidden='{{!floorstatus}}' bindtap="goTop">fsd</image>
+</view>
+</view>

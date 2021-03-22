@@ -1,0 +1,188 @@
+.all{
+  margin: 0 8%;
+}
+.tex{
+  margin-top: 50rpx;
+  height:156rpx;
+font-size:56rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(51,51,51,1);
+line-height:78rpx;
+}
+.pcl{
+  display: flex;
+  align-items: center;
+
+
+}
+.inputone{
+  display: inline-block;
+  width: 78rpx;
+  font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+}
+.inp{
+ margin-top: 44rpx;
+  display: flex;
+  align-items: center;
+}
+.inp .left{
+  display: flex;
+   align-items: center;
+}
+.inp .left text{
+ width:58rpx;
+height:42rpx;
+font-size:30rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(51,51,51,1);
+
+}
+.inp .left image{
+width:28rpx;
+height:16rpx;
+  margin-left: 20rpx;
+}
+.phoneinput{
+margin-left: 32rpx;
+width: 100%;
+/* background: red; */
+
+font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+
+}
+.pwdinput{
+  margin-left: 32rpx;
+width: 100%;
+/* background: red; */
+font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+
+}
+/* .inp input{
+    margin-left: 32rpx;
+width: 100%;
+background: red;
+font-size:32rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+} */
+.inp .del{
+  width: 36rpx;
+  height: 30rpx;
+  margin-left: auto;
+margin-right: 20rpx;
+
+}
+.all .kong{
+  margin-top: 12rpx;
+height:2rpx;
+background:rgba(219,219,219,1);
+}
+
+.all button{
+margin-top: 62rpx;
+height:88rpx;
+background:rgba(48,122,245,1);
+border-radius:8rpx;
+font-size:34rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:white;
+}
+.all  .con navigator{
+margin: 64rpx auto;
+ 
+width:160rpx;
+height:44rpx;
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(51,51,51,1);
+line-height:44rpx;
+}
+
+.all .weixin{
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 45.25%;
+  margin-top: 172rpx;
+}
+
+.all .bot{
+ 
+  height: 48rpx;
+  font-size: 27rpx;
+  margin: 80rpx auto 0 auto;
+  margin-top: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all .bot text{
+font-size:26rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(153,153,153,1);
+margin-left: 12rpx;
+}
+.all .bot .logDisabled{
+  height: 48rpx;
+  width: 48rpx;
+ /* border: 1px solid gray;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all .bot .logDisabled image{
+    height: 30rpx;
+  width: 30rpx;
+}
+/* 密码 */
+
+.inp {
+  margin-top: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.inp .mima {
+   height: 44rpx;
+  width: 42rpx; 
+}
+.inp input {
+  display: flex;
+  align-items: center;
+  min-height: 0.8rem;
+  margin-left: 20rpx;
+  height: 40rpx;
+}
+/* 输入框样式 */
+.plstyle{
+  display: flex;
+  align-items: center;
+}
+.inp .showView{
+
+    width: 100rpx;
+    height: 60rpx;
+  display: flex;
+  align-items: center;
+
+}
+.inp .showImg {
+  height: 30rpx;
+  width: 36rpx;
+  margin-left: auto;
+  margin-right: 20rpx;
+}

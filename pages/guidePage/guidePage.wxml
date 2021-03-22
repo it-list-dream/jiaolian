@@ -1,0 +1,8 @@
+<view class="all">
+   <image src="/icon/guideBg.png"></image>
+   <view class="main_con">
+    <text>发布课程</text>
+     <text>时间安排   高效便捷</text>
+     <navigator  open-type="redirect" url="/pages/log_in/log_in"  hover-class="none"><view class="navigat">立即体验</view></navigator>  
+   </view>
+</view>
