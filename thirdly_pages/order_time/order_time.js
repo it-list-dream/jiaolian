@@ -1,36 +1,6 @@
 var util = require("../../utils/util.js")
 const server = require('../../utils/server.js')
 const app = getApp()
-
-function toWeekDay(weekDay) {
-
-  switch (weekDay) {
-    case 1:
-      return '周一';
-      break;
-    case 2:
-      return '周二';
-      break;
-    case 3:
-      return '周三';
-      break;
-    case 4:
-      return '周四';
-      break;
-    case 5:
-      return '周五';
-      break;
-    case 6:
-      return '周六';
-      break;
-    case 0:
-      return '周日';
-      break;
-    default:
-      break;
-  }
-  return '传入未知参数';
-}
 Page({
   data: {
     aa: {
@@ -39,370 +9,7 @@ Page({
       "flag": 1,
       "name": "预约"
     },
-    datatime: [
-      {
-        starttime: '06:00',
-        endtime: "07:00",
-        sort: 1,
-        index:6,
-        type: 1
-      },
-      {
-        starttime: '06:30',
-        endtime: "07:30",
-        index:6.5,
-        sort: 2,
-        type: 1
-      },
-      {
-        starttime: '07:00',
-        endtime: "08:00",
-        index:7,
-        sort: 3,
-        type: 1
-      },
-      {
-        starttime: '07:30',
-        endtime: "08:30",
-        index:7.5,
-        sort: 4,
-        type: 1
-      },
-      {
-        starttime: '08:00',
-        endtime: "09:00",
-        index:8,
-        sort: 5,
-        type: 1
-      },
-      {
-        starttime: '08:30',
-        endtime: "09:30",
-        index:8.5,
-        sort: 6,
-        type: 1
-      },
-      {
-        starttime: '9:00',
-        endtime: "10:00",
-        index:9,
-        sort: 7,
-        type: 1
-      },
-      {
-        starttime: '9:30',
-        endtime: "10:30",
-        index:9.5,
-        sort: 8,
-        type: 1
-      },
-      {
-        starttime: '10:00',
-        endtime: "11:00",
-        index:10,
-        sort: 9,
-        type: 1
-      },
-      {
-        starttime: '10:30',
-        endtime: "11:30",
-        index:10.5,
-        sort: 10,
-        type: 1
-      },
-      {
-        starttime: '11:00',
-        endtime: "12:00",
-        index:11,
-        sort: 11,
-        type: 1
-      },
-      {
-        starttime: '11:30',
-        index:11.5,
-        endtime: "12:30",
-        sort: 12,
-        type: 1
-      },
-      {
-        starttime: '12:00',
-        endtime: "13:00",
-        index:12,
-        sort: 13,
-        type: 1
-      },
-      {
-        starttime: '12:30',
-        endtime: "13:30",
-        index:12.5,
-        sort: 14,
-        type: 1
-      },
-      {
-        starttime: '13:00',
-        endtime: "14:00",
-        index:13,
-        sort: 15,
-        type: 1
-      },
-      {
-        starttime: '13:30',
-        endtime: "14:30",
-        index:13.5,
-        sort: 16,
-        type: 1
-      },
-      {
-        starttime: '14:00',
-        endtime: "15:00",
-        index:14,
-        sort: 17,
-        type: 1
-      },
-      {
-        starttime: '14:30',
-        endtime: "15:30",
-        index:14.5,
-        sort: 18,
-        type: 1
-      },
-      {
-        starttime: '15:00',
-        endtime: "16:00",
-        index:15,
-        sort: 19,
-        type: 1
-      },
-      {
-        starttime: '15:30',
-        endtime: "16:30",
-        index:15.5,
-        sort: 20,
-        type: 1
-      },
-      {
-        starttime: '16:00',
-        endtime: "17:00",
-        index:16,
-        sort: 21,
-        type: 1
-      },
-      {
-        starttime: '16:30',
-        endtime: "17:30",
-        index:16.5,
-        sort: 22,
-        type: 1
-      },
-      {
-        starttime: '17:00',
-        endtime: "18:00",
-        index:17,
-        sort: 23,
-        type: 1
-      },
-      {
-        starttime: '17:30',
-        endtime: "18:30",
-        index:17.5,
-        sort: 24,
-        type: 1
-      },
-      {
-        starttime: '18:00',
-        endtime: "19:00",
-        index:18,
-        sort: 25,
-        type: 1
-      },
-      {
-        starttime: '18:30',
-        endtime: "19:30",
-        index:18.5,
-        sort: 26,
-        type: 1
-      },
-      {
-        starttime: '19:00',
-        endtime: "20:00",
-        index:19,
-        sort: 27,
-        type: 1
-      },
-      {
-        starttime: '19:30',
-        endtime: "20:30",
-        index:19.5,
-        sort: 28,
-        type: 1
-      },
-      {
-        starttime: '20:00',
-        endtime: "21:00",
-        index:20,
-        sort: 29,
-        type: 1
-      },
-      {
-        starttime: '20:30',
-        endtime: "21:30",
-        index:20.5,
-        sort: 30,
-        type: 1
-      },
-      {
-        starttime: '21:00',
-        endtime: "22:00",
-        index:21,
-        sort: 31,
-        type: 1
-      },
-      {
-        starttime: '21:30',
-        endtime: "22:30",
-        index:21.5,
-        sort: 32,
-        type: 1
-      },
-      {
-        starttime: '22:00',
-        endtime: "23:00",
-        index:22,
-        sort: 33,
-        type: 1
-      },
-      {
-        starttime: '22:30',
-        endtime: "23:30",
-        index:22.5,
-        sort: 34,
-        type: 1
-      },
-      {
-        starttime: '23:00',
-        endtime: "00:00",
-        index:23,
-        sort: 35,
-        type: 1
-      },
-      {
-        starttime: '23:30',
-        endtime: "00:30",
-        index:23.5,
-        sort: 36,
-        type: 1
-      },
-     ],
-    // datatime: [{
-    //   starttime: '06:00',
-    //   endtime: "07:00",
-    //   sort: 1,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '07:00',
-    //   endtime: "08:00",
-    //   sort: 2,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '08:00',
-    //   endtime: "09:00",
-    //   sort: 3,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '09:00',
-    //   endtime: "10:00",
-    //   sort: 4,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '10:00',
-    //   endtime: "11:00",
-    //   sort: 5,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '11:00',
-    //   endtime: "12:00",
-    //   sort: 6,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '12:00',
-    //   endtime: "13:00",
-    //   sort: 7,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '13:00',
-    //   endtime: "14:00",
-    //   sort: 8,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '14:00',
-    //   endtime: "15:00",
-    //   sort: 9,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '15:00',
-    //   endtime: "16:00",
-    //   sort: 10,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '16:00',
-    //   endtime: "17:00",
-    //   sort: 11,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '17:00',
-    //   endtime: "18:00",
-    //   sort: 12,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '18:00',
-    //   endtime: "19:00",
-    //   sort: 13,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '19:00',
-    //   endtime: "20:00",
-    //   sort: 14,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '20:00',
-    //   endtime: "21:00",
-    //   sort: 15,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '21:00',
-    //   endtime: "22:00",
-    //   sort: 16,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '22:00',
-    //   endtime: "23:00",
-    //   sort: 17,
-    //   type: 1
-    // },
-    // {
-    //   starttime: '23:00',
-    //   endtime: "24:00",
-    //   sort: 18,
-    //   type: 1
-    // },
-
-    // ],
+    datatime:[],
     dayStyle: [{
       month: 'current',
       day: new Date().getDate(),
@@ -637,7 +244,7 @@ Page({
     dayList.push({
       'day': myDate.getDate(),
       'month': myDate.getMonth() + total,
-      'week': toWeekDay(myDate.getDay()),
+      'week': util.toWeekDay(myDate.getDay()),
       'year': myDate.getFullYear()
     });
     for (var i = 0; i < 4; i++) {
@@ -645,7 +252,7 @@ Page({
       dayList.push({
         'day': myDate.getDate(),
         'month': myDate.getMonth() + total,
-        'week': toWeekDay(myDate.getDay()),
+        'week': util.toWeekDay(myDate.getDay()),
         'year': myDate.getFullYear()
       });
     }
@@ -674,14 +281,13 @@ Page({
   // 得到我的时间封装
   teachMyTime: function () {
     var that = this
-
     server.request('TeachMyTime', {
       SearchDate: that.data.SearchDate
     }, function (res) {
       console.log(res);
       var sdts = res.data.data.sort(that.compare("sort", false)).reverse()
-      console.log(sdts)
-      // 时间去重
+      //console.log(sdts)
+      //// 时间去重
       var result = [];
       var obj = {};
       for (var i = 0; i < sdts.length; i++) {
@@ -697,9 +303,6 @@ Page({
 
       var datacopy = JSON.parse(JSON.stringify(data))
       for (var i = 0; i < datacopy.length; i++) {
-       // console.log(minnutes / 60);
-        //console.log(Number(hours) + minnutes / 60 + 2);
-        //console.log(Number(datacopy[i].index))
         if (Date.parse(that.data.todaytime) == Date.parse(that.data.SearchDate) && Number(hours) + minnutes / 60  > Number(datacopy[i].index)) {
           datacopy[i].type = -1
         }
@@ -710,8 +313,7 @@ Page({
             datacopy[i].type = 3;
           }
         }
-        for (var j = 0; j < result.length; j++) {
-         // console.log(result);
+        for (var j = 0; j < result.length; j++) {  
           console.log(result[j])
           if (datacopy[i].sort == result[j].sort) {
             datacopy[i].type = result[j].Type
@@ -763,7 +365,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      datatime:util.createEveryday()
+    })
   },
 
   /**
